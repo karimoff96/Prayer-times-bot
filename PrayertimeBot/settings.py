@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-z-ap+5!3c-1q&e5)lma001h-cl&9!vw1dmh9edq3(sathdo^c(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['4874-84-54-120-87.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['prayertimesbot.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
