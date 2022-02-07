@@ -14,7 +14,10 @@ class Users(models.Model):
     step = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.first_name
+        if self.username is None:
+            return f'{self.user_id}'
+        else:
+            return self.username
 
 class Media(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
