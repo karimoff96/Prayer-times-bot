@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z-ap+5!3c-1q&e5)lma001h-cl&9!vw1dmh9edq3(sathdo^c('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['prayertimesbot.herokuapp.com', '127.0.0.1']
 
