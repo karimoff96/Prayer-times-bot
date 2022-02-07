@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from prayertime.views import *
 urlpatterns = [
-    path('', admin.site.urls),
-    path('index/', index, name='handler'),
+    path('admin/', admin.site.urls),
+    path('', index, name='handler'),
 ]
