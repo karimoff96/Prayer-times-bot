@@ -61,7 +61,7 @@ def echo_all(message):
         b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='namangan')
         b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='bukhara')
         b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='jizzakh')
-        b6 = types.InlineKeyboardButton('🕌Қанши', callback_data='qarshi')
+        b6 = types.InlineKeyboardButton('🕌Қарши', callback_data='qarshi')
         b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='nukus')
         b9 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='samarkand')
         b10 = types.InlineKeyboardButton('🕌Урганч', callback_data='urgench')

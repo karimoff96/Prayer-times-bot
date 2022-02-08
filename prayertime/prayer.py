@@ -9,9 +9,9 @@ def pray_time(a):
     b = requests.get(f'https://api.pray.zone/v2/times/today.json?city={a}').json()['results']['datetime'][0]
     c = b["date"]["gregorian"]
     r = b["times"]
-    dict = {"tashkent": 'Тошкент', 'fergama': 'Фарғона', 'andijan': 'Андижон', 'namangan': 'Наманган',
+    dict = {"tashkent": 'Тошкент', 'fergana': 'Фарғона', 'andijan': 'Андижон', 'namangan': 'Наманган',
             'bukhara': "Бухоро",
-            'jizzakh': 'Жиззах', 'qarshi': 'Қанши', 'nukus': 'Нукус', 'navoiy': 'Навоий', 'samarkand': 'Самарқанд',
+            'jizzakh': 'Жиззах', 'qarshi': 'Қарши', 'nukus': 'Нукус', 'navoiy': 'Навоий', 'samarkand': 'Самарқанд',
             'urgench': 'Урганч', 'termiz': 'Термиз', 'khiva': 'Хива', 'gulistan': 'Гулистон',
             'zarafshan': 'Зарафшон',
             'margilan': 'Марғилон', 'kokand': 'Қўқон'}
