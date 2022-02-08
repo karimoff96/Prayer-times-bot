@@ -98,7 +98,8 @@ def echo_all(message):
                        caption='Шом намози 3 ракат фарзи ўқиш тартиби. Шом намози икки ракат суннати овоз чиқармай ўқилади бомдодни икки ракат суннати каби фақат ният шомни икки ракат суннати деб қилинади. \n👳‍♂ Еркаклар учун.')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12986',
                        caption='Хуфтон намози 4 ракат фарзи ўқиш тартиби. \nХуфтон намози икки ракат суннати овоз чиқармай ўқилади бомдод суннати каби. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981', caption='Тахаджуд намози.')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981',
+                       caption='Тахаджуд намози.')
     elif message.text == '👳Аёллар учун':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12976',
                        caption='Аёллар учун Бомдод намозини ўқиш тартиби. \n👳 Аёллар учун.')
@@ -110,7 +111,8 @@ def echo_all(message):
                        caption='Аёллар учун Шом намозини ўқиш тартиби. \n👳 Аёллар учун.')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12980',
                        caption='Аёллар учун  Хуфтон намозини ўқиш тартиби. \n👳 Аёллар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981', caption='Тахаджуд намози.')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981',
+                       caption='Тахаджуд намози.')
     elif message.text == '🔙Ортга':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
