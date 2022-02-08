@@ -8,7 +8,7 @@ import requests
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
 
-bot = telebot.TeleBot("5274232346:AAFL4UXhe41LbODSnp727iRhK4uCk3qonlI", parse_mode="HTML", threaded=False)
+bot = telebot.TeleBot("5274232346:AAFL4UXhe41LbODSnp727iRhK4uCk3qonlI", parse_mode="HTML")
 
 
 @csrf_exempt
