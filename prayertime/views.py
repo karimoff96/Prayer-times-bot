@@ -55,20 +55,20 @@ def echo_all(message):
         bot_user.step = 1
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=2)
-        b = types.InlineKeyboardButton('Тошкент', callback_data='tashkent')
-        b1 = types.InlineKeyboardButton('Фарғона', callback_data='fergana')
-        b2 = types.InlineKeyboardButton('Андижон', callback_data='andijan')
-        b3 = types.InlineKeyboardButton('Наманган', callback_data='namangan')
-        b4 = types.InlineKeyboardButton('Бухоро', callback_data='bukhara')
-        b5 = types.InlineKeyboardButton('Жиззах', callback_data='jizzakh')
-        b6 = types.InlineKeyboardButton('Қанши', callback_data='qarshi')
-        b7 = types.InlineKeyboardButton('Нукус', callback_data='nukus')
-        b9 = types.InlineKeyboardButton('Самарқанд', callback_data='samarkand')
-        b10 = types.InlineKeyboardButton('Урганч', callback_data='urgench')
-        b12 = types.InlineKeyboardButton('Хива', callback_data='khiva')
-        b13 = types.InlineKeyboardButton('Гулистон', callback_data='gulistan')
-        b15 = types.InlineKeyboardButton('Марғилон', callback_data='margilan')
-        b11 = types.InlineKeyboardButton('Қўқон', callback_data='kokand')
+        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='tashkent')
+        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='fergana')
+        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='andijan')
+        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='namangan')
+        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='bukhara')
+        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='jizzakh')
+        b6 = types.InlineKeyboardButton('🕌Қанши', callback_data='qarshi')
+        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='nukus')
+        b9 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='samarkand')
+        b10 = types.InlineKeyboardButton('🕌Урганч', callback_data='urgench')
+        b12 = types.InlineKeyboardButton('🕌Хива', callback_data='khiva')
+        b13 = types.InlineKeyboardButton('🕌Гулистон', callback_data='gulistan')
+        b15 = types.InlineKeyboardButton('🕌Марғилон', callback_data='margilan')
+        b11 = types.InlineKeyboardButton('🕌Қўқон', callback_data='kokand')
         markup.add(b, b1, b2, b3, b4, b5, b6, b7, b9, b10, b11, b12, b13, b15)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>",
                          reply_markup=markup)
@@ -83,8 +83,9 @@ def echo_all(message):
         b1 = types.KeyboardButton('👳Аёллар учун')
         b2 = types.KeyboardButton('🔙Ортга')
         markup.add(b, b1, b2)
+        bot.send_message(message.from_user.id, 'بِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم')
         bot.send_message(message.from_user.id,
-                         f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>\nبِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم',
+                         f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>',
                          reply_markup=markup)
     elif message.text == '👳‍♂Эркаклар учун':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12982',
@@ -138,10 +139,4 @@ def call_data(call):
     if call.data in ['tashkent', 'fergana', 'andijan', 'namangan', 'bukhara', 'jizzakh', 'qarshi', 'nukus',
                      'navoiy', 'samarkand', 'urgench', 'termiz', 'khiva', 'gulistan', 'zarafshan', 'margilan',
                      'kokand']:
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        b2 = types.KeyboardButton('🔙Ортга')
-        markup.add(b2)
-        bot.send_message(call.from_user.id,
-                         f'<i> "Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132)</i>.\nبِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم',
-                         reply_markup=markup)
         bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
