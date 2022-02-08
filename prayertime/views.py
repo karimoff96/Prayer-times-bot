@@ -87,28 +87,42 @@ def echo_all(message):
                          f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>\nبِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم',
                          reply_markup=markup)
     elif message.text == '👳‍♂Эркаклар учун':
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12982',
                        caption='Бомдод намози ўқиш тартиби. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12983',
                        caption='Видео дарс Пешин намозининг 4 ракат фарзи ўқиш тартиби. \nПешини намози суннатлари ҳам  шундай  ўқилади ниятда суннат дейилади 3-4 ракатда ҳам зам сура ўқилади. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12984',
                        caption='Аср намози ўқиш тартиби. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12985',
                        caption='Шом намози 3 ракат фарзи ўқиш тартиби. Шом намози икки ракат суннати овоз чиқармай ўқилади бомдодни икки ракат суннати каби фақат ният шомни икки ракат суннати деб қилинади. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12986',
                        caption='Хуфтон намози 4 ракат фарзи ўқиш тартиби. \nХуфтон намози икки ракат суннати овоз чиқармай ўқилади бомдод суннати каби. \n👳‍♂ Еркаклар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345', caption='Тахаджуд намози.')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981', caption='Тахаджуд намози.')
     elif message.text == '👳Аёллар учун':
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12976',
                        caption='Аёллар учун Бомдод намозини ўқиш тартиби. \n👳 Аёллар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12977',
                        caption='Аёллар учун Пешин намозини ўқиш тартиби. \n👳 Аёллар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12978',
                        caption='Аёллар учун Аср намозини ўқиш тартиби. \n👳 Аёллар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345',
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12979',
+                       caption='Аёллар учун Шом намозини ўқиш тартиби. \n👳 Аёллар учун.')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12980',
                        caption='Аёллар учун  Хуфтон намозини ўқиш тартиби. \n👳 Аёллар учун.')
-        bot.send_video(chat_id=message.from_user.id, video='https://t.me/HDfixfilm/345', caption='Тахаджуд намози.')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981', caption='Тахаджуд намози.')
     elif message.text == '🔙Ортга':
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        markup.add(btn, btn1)
+        bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+    elif message.text == '/botga_elon_yuborish':
+        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+        b = types.KeyboardButton('❌Bekor qilish')
+        markup.add(b)
+        bot.send_message(message.from_user.id, 'E`loningizni kiriting: ', reply_markup=markup)
+
+    elif message.text == '❌Bekor qilish':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
