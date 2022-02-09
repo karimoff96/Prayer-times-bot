@@ -135,8 +135,8 @@ def echo_all(message):
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
-def panel(message):
-    if message.text == '/elon' and message.chat.id == 419717087:
+
+    elif message.text == '/elon' and message.chat.id == 419717087:
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('❌Bekor qilish')
         markup.add(b)
