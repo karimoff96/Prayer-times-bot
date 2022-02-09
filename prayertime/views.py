@@ -48,6 +48,13 @@ def start(message):
         bot_user.save()
 
 
+@bot.message_handler(func=lambda message: message.chat.id == 'Admin')
+def admin(message):
+    if message.chat.id == '419717087' and message.text == '/stats':
+        users = len(Users.objects.all())
+        bot.send_message(message.chat.id, f'📊 Botimiz Statistikasi:\n👤Users:{users}\nCreator:@dkarimoff96')
+
+
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot_user = Users.objects.get(user_id=message.chat.id)
