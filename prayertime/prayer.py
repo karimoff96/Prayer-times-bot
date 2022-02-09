@@ -20,9 +20,8 @@ def pray_time(a):
     shom = part[4].text[14:]
     xufton = part[5].text[8:]
     dict = {"Toshkent": 'Тошкент', 'Farg%60ona': 'Фарғона', 'Andijon': 'Андижон', 'Jambul': 'Наманган',
-            'Buxoro': "Бухоро", 'Jizzax': 'Жиззах', 'Qarshi': 'Қарши', 'Nukus': 'Нукус', 'Navoiy': 'Навоий',
-            'Samarqand': 'Самарқанд',
-            'Xiva': 'Хива', 'Guliston': 'Гулистон', 'Denov': 'Сурхандарё'}
+            'Buxoro': "Бухоро", 'Jizzax': 'Жиззах', 'Qarshi': 'Қашқадарё', 'Nukus': 'Нукус', 'Navoiy': 'Навоий',
+            'Samarqand': 'Самарқанд', 'Xiva': 'Хоразм', 'Guliston': 'Сирдарё', 'Denov': 'Сурхандарё'}
     if a in dict.keys():
         y = dict[a]
 
