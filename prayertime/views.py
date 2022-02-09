@@ -49,7 +49,7 @@ def start(message):
 
 
 @bot.message_handler(func=lambda message: message.chat.id == 'Admin')
-def admin(message):
+def stat(message):
     if message.chat.id == '419717087' and message.text == '/stats':
         users = len(Users.objects.all())
         bot.send_message(message.chat.id, f'📊 Botimiz Statistikasi:\n👤Users:{users}\nCreator:@dkarimoff96')
