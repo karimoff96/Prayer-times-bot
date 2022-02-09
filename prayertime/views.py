@@ -68,7 +68,7 @@ def echo_all(message):
         b10 = types.InlineKeyboardButton('🕌Гулистон', callback_data='Guliston')
         b11 = types.InlineKeyboardButton('🕌Сурхандарё', callback_data='Denov')
         b12 = types.InlineKeyboardButton('🕌Навоий', callback_data='Navoiy')
-        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b9, b10, b11, b12)
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>",
                          reply_markup=markup)
         markup1 = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
