@@ -135,20 +135,7 @@ def echo_all(message):
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
-
-# bot.polling()
-
-
-@bot.callback_query_handler(func=lambda call: True)
-def call_data(call):
-    if call.data in ['Toshkent', 'Farg%60ona', 'Andijon', 'Farg%60ona', 'Buxoro', 'Jizzax', 'Qarshi', 'Nukus',
-                     'Navoiy', 'Samarqand', 'Denov', 'Xiva', 'Guliston']:
-        bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
-
-
-@bot.message_handler(func=lambda message: True)
 def panel(message):
-    print('admin')
     if message.text == '/elon' and message.chat.id == 419717087:
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('❌Bekor qilish')
@@ -175,3 +162,14 @@ def test(message):
         markup.add(btn, btn1)
         for m in Users.objects.all():
             bot.copy_message(m.user_id, message.chat.id, message.message_id, reply_markup=markup)
+
+# bot.polling()
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def call_data(call):
+    if call.data in ['Toshkent', 'Farg%60ona', 'Andijon', 'Farg%60ona', 'Buxoro', 'Jizzax', 'Qarshi', 'Nukus',
+                     'Navoiy', 'Samarqand', 'Denov', 'Xiva', 'Guliston']:
+        bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
+
+
