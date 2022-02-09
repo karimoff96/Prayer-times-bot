@@ -137,7 +137,7 @@ def echo_all(message):
     elif message.text == "/stats":
         if message.chat.id == 80957011 or message.chat.id == 419717087:
             user = len(Users.objects.all())
-            bot.send_message(message.chat.id, f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar soni:</b>{user}\n🧑🏻‍💻<b>Muallif:</b><i>@pythoneer96</i>')
+            bot.send_message(message.chat.id, f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar:</b> {user}\n🧑🏻‍💻<b>Muallif:</b><i> @pythoneer96</i>')
 
 
 def test(message):
