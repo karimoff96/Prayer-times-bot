@@ -55,21 +55,20 @@ def echo_all(message):
         bot_user.step = 1
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=2)
-        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='tashkent')
-        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='fergana')
-        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='andijan')
-        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='namangan')
-        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='bukhara')
-        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='jizzakh')
-        b6 = types.InlineKeyboardButton('🕌Қарши', callback_data='qarshi')
-        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='nukus')
-        b9 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='samarkand')
-        b10 = types.InlineKeyboardButton('🕌Урганч', callback_data='urgench')
-        b12 = types.InlineKeyboardButton('🕌Хива', callback_data='khiva')
-        b13 = types.InlineKeyboardButton('🕌Гулистон', callback_data='gulistan')
-        b15 = types.InlineKeyboardButton('🕌Марғилон', callback_data='margilan')
-        b11 = types.InlineKeyboardButton('🕌Қўқон', callback_data='kokand')
-        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b9, b10, b11, b12, b13, b15)
+        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='Toshkent')
+        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='Farg%60ona')
+        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='Andijon')
+        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='Jambul')
+        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='Buxoro')
+        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='Jizzax')
+        b6 = types.InlineKeyboardButton('🕌Қашқадарё', callback_data='Qarshi')
+        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='Nukus')
+        b8 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='Samarqand')
+        b9 = types.InlineKeyboardButton('🕌Хоразм', callback_data='Xiva')
+        b10 = types.InlineKeyboardButton('🕌Гулистон', callback_data='Guliston')
+        b11 = types.InlineKeyboardButton('🕌Сурхандарё', callback_data='Denov')
+        b12 = types.InlineKeyboardButton('🕌Навоий', callback_data='Navoiy')
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b9, b10, b11, b12)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>",
                          reply_markup=markup)
         markup1 = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
@@ -138,7 +137,6 @@ def echo_all(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
-    if call.data in ['tashkent', 'fergana', 'andijan', 'namangan', 'bukhara', 'jizzakh', 'qarshi', 'nukus',
-                     'navoiy', 'samarkand', 'urgench', 'termiz', 'khiva', 'gulistan', 'zarafshan', 'margilan',
-                     'kokand']:
+    if call.data in ['Toshkent', 'Farg%60ona', 'Andijon', 'Farg%60ona', 'Buxoro', 'Jizzax', 'Qarshi', 'Nukus',
+                     'Navoiy', 'Samarqand', 'Denov', 'Xiva', 'Guliston']:
         bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
