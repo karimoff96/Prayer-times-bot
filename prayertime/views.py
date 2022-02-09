@@ -44,15 +44,40 @@ def start(message):
         bot_user = Users.objects.create(
             user_id=message.from_user.id,
             username=message.from_user.username,
+            active=True
         )
         bot_user.save()
 
 
-@bot.message_handler(func=lambda message: message.chat.id == 'Admin')
-def stat(message):
-    if message.chat.id == '419717087' and message.text == '/stats':
-        users = len(Users.objects.all())
-        bot.send_message(message.chat.id, f'📊 Botimiz Statistikasi:\n👤Users:{users}\nCreator:@dkarimoff96')
+@bot.message_handler(func=lambda message: True)
+def panel(message):
+    print('admin')
+    if message.text == '/elon' and message.chat.id == 419717087:
+        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+        b = types.KeyboardButton('❌Bekor qilish')
+        markup.add(b)
+        mesg = bot.send_message(message.chat.id, 'Elonni kiriting:', reply_markup=markup)
+        bot.register_next_step_handler(mesg, test)
+    elif message.text == "/stats" and message.chat.id == 419717087:
+        user = len(Users.objects.all())
+        bot.send_message(message.chat.id, f'📊 Users number:\n👤Users:{user}\nCreator:@dkarimoff96')
+
+
+def test(message):
+    if message.text == '❌Bekor qilish':
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        markup.add(btn, btn1)
+        bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+    else:
+        print(message)
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        markup.add(btn, btn1)
+        for m in Users.objects.all():
+            bot.copy_message(m.user_id, message.chat.id, message.message_id, reply_markup=markup)
 
 
 @bot.message_handler(func=lambda message: True)
