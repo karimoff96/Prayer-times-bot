@@ -49,9 +49,6 @@ def start(message):
         bot_user.save()
 
 
-
-
-
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot_user = Users.objects.get(user_id=message.chat.id)
@@ -122,46 +119,55 @@ def echo_all(message):
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
-    elif message.text == '/botga_elon_yuborish':
-        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        b = types.KeyboardButton('❌Bekor qilish')
-        markup.add(b)
-        bot.send_message(message.from_user.id, 'E`loningizni kiriting: ', reply_markup=markup)
 
-    elif message.text == '❌Bekor qilish':
+    elif message.text == '🔙Ortga':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
-
-    elif message.text == '/elon' and message.chat.id == 419717087:
-        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        b = types.KeyboardButton('❌Bekor qilish')
-        markup.add(b)
-        mesg = bot.send_message(message.chat.id, 'Elonni kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(mesg, test)
-    elif message.text == "/stats" and message.chat.id == 419717087:
-        user = len(Users.objects.all())
-        bot.send_message(message.chat.id, f'📊 Users number:\n👤Users:{user}\nCreator:@dkarimoff96')
+    elif message.text == '/elon':
+        if message.chat.id == 80957011 or message.chat.id == 419717087:
+            markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+            b = types.KeyboardButton('🔙Ortga')
+            markup.add(b)
+            mesg = bot.send_message(message.chat.id, 'Elonni kiriting:', reply_markup=markup)
+            bot.register_next_step_handler(mesg, test)
+    elif message.text == "/stats":
+        if message.chat.id == 80957011 or message.chat.id == 419717087:
+            user = len(Users.objects.all())
+            bot.send_message(message.chat.id, f'📊 Users number:\n👤Users:{user}\nCreator:@dkarimoff96')
 
 
 def test(message):
-    if message.text == '❌Bekor qilish':
+    print(message.json)
+    if message.text == '🔙Ortga':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+
     else:
-        print(message)
-        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
-        btn = types.KeyboardButton("⌛Намоз вақтлари")
-        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
-        markup.add(btn, btn1)
         for m in Users.objects.all():
-            bot.copy_message(m.user_id, message.chat.id, message.message_id, reply_markup=markup)
+            bot.forward_message(m.user_id, message.chat.id, message.id)
+        # markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        # btn = types.KeyboardButton("⌛Намоз вақтлари")
+        # btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        # markup.add(btn, btn1)
+        # bot.send_message(message.from_user.id, '<b><i>E`lon muvafaqqiyatli yuborildi!</i></b>')
+        # bot.copy_message(m.user_id, message.chat.id, message.message_id, reply_markup=markup)
+
+    # else:
+    #     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+    #     btn = types.KeyboardButton("⌛Намоз вақтлари")
+    #     btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+    #     markup.add(btn, btn1)
+    #     bot.send_message(message.from_user.id,
+    #                      '<b><i>Ma`lumot qabul qilinmadi. Iltimos qaytadan urinib ko`ring!</i></b>',
+    #                      reply_markup=markup)
+
 
 # bot.polling()
 
@@ -171,5 +177,3 @@ def call_data(call):
     if call.data in ['Toshkent', 'Farg%60ona', 'Andijon', 'Farg%60ona', 'Buxoro', 'Jizzax', 'Qarshi', 'Nukus',
                      'Navoiy', 'Samarqand', 'Denov', 'Xiva', 'Guliston']:
         bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
-
-
