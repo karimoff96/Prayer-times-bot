@@ -128,14 +128,14 @@ def echo_all(message):
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
     elif message.text == '/elon':
-        if message.chat.id == 80957011 or message.chat.id == 419717087:
+        if message.chat.id == 419717087:
             markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
             b = types.KeyboardButton('🔙Ortga')
             markup.add(b)
             mesg = bot.send_message(message.chat.id, 'Elonni kiriting:', reply_markup=markup)
             bot.register_next_step_handler(mesg, test)
     elif message.text == "/stats":
-        if message.chat.id == 80957011 or message.chat.id == 419717087:
+        if message.chat.id == 419717087:
             user = len(Users.objects.all())
             bot.send_message(message.chat.id, f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar:</b> {user}\n🧑🏻‍💻<b>Muallif:</b><i> @pythoneer96</i>')
 
