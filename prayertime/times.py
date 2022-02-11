@@ -22,10 +22,9 @@ def prayer_time(a):
     return date
 print(prayer_time('Andijon'))
     # urls = {0: 'Toshkent', 1: 'Farg%60ona', 2: 'Farg%60ona', 3: 'Andijon', 4: 'Jizzax', 5: 'Samarqand', 6: 'Xiva',
-    #         7: 'Buxoro', 8: 'Nukus', 9: 'Qarshi', 10: 'Navoiy', 11: 'Guliston', 12: 'Denov'}
 
 
-# http://uzsmart.ru/namoz-vaqtlari/shahar/Andijon.html
+# http://uzsmar    #         7: 'Buxoro', 8: 'Nukus', 9: 'Qarshi', 10: 'Navoiy', 11: 'Guliston', 12: 'Denov'}t.ru/namoz-vaqtlari/shahar/Andijon.html
 # http://uzsmart.ru/namoz-vaqtlari/shahar/Jizzax.html
 # http://uzsmart.ru/namoz-vaqtlari/shahar/Samarqand.html
 # http://uzsmart.ru/namoz-vaqtlari/shahar/Xiva.html     xorazim
