@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-z-ap+5!3c-1q&e5)lma001h-cl&9!vw1dmh9edq3(sathdo^c(
 DEBUG = True
 
 ALLOWED_HOSTS = ['prayertimesbot.herokuapp.com', '127.0.0.1']
-# Application definition
+# Application definition           prayertimesbot.herokuapp.com
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
