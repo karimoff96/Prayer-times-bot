@@ -9,6 +9,8 @@ from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
 
 bot = telebot.TeleBot("5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0", parse_mode="HTML")
+# origin:5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0
+# edit:1985195461:AAFSX-rnFK8zJAf-aqfqcOdZFaZ_Qu7t_QY
 Admin = 419717087
 
 
@@ -65,20 +67,28 @@ def echo_all(message):
         bot_user.step = 1
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=2)
-        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='Toshkent')
-        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='Farg%60ona')
-        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='Andijon')
-        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='Jambul')
-        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='Buxoro')
-        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='Jizzax')
-        b6 = types.InlineKeyboardButton('🕌Қашқадарё', callback_data='Qarshi')
-        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='Nukus')
-        b8 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='Samarqand')
-        b9 = types.InlineKeyboardButton('🕌Хоразм', callback_data='Xiva')
-        b10 = types.InlineKeyboardButton('🕌Гулистон', callback_data='Guliston')
-        b11 = types.InlineKeyboardButton('🕌Сурхандарё', callback_data='Denov')
-        b12 = types.InlineKeyboardButton('🕌Навоий', callback_data='Navoiy')
-        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12)
+        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='27')
+        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='37')
+        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='1')
+        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='15')
+        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='4')
+        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='9')
+        b6 = types.InlineKeyboardButton('🕌Қарши', callback_data='25')
+        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='16')
+        b8 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='18')
+        b9 = types.InlineKeyboardButton('🕌Хива', callback_data='21')
+        b10 = types.InlineKeyboardButton('🕌Гулистон', callback_data='5')
+        b11 = types.InlineKeyboardButton('🕌Денов', callback_data='6')
+        b12 = types.InlineKeyboardButton('🕌Навоий', callback_data='14')
+        b13 = types.InlineKeyboardButton('🕌Қўқон', callback_data='26')
+        b14 = types.InlineKeyboardButton('🕌Марғилон', callback_data='13')
+        b15 = types.InlineKeyboardButton('🕌Бишкек', callback_data='3')
+        b16 = types.InlineKeyboardButton('🕌Туркмстон', callback_data='19')
+        b17 = types.InlineKeyboardButton('🕌Зарафшон', callback_data='61')
+        b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
+        b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
+        b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>",
                          reply_markup=markup)
         markup1 = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
@@ -199,6 +209,6 @@ def send(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
-    if call.data in ['Toshkent', 'Farg%60ona', 'Andijon', 'Farg%60ona', 'Buxoro', 'Jizzax', 'Qarshi', 'Nukus',
-                     'Navoiy', 'Samarqand', 'Denov', 'Xiva', 'Guliston']:
+    if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
+                     '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74']:
         bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
