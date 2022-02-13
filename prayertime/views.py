@@ -153,7 +153,7 @@ def echo_all(message):
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
         markup.add(b)
-        mesg = bot.send_message(Admin, '<code>Elonni kiriting:<code>', reply_markup=markup)
+        mesg = bot.send_message(Admin, '<code>Elonni kiriting:</code>', reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
     elif message.text == '/activate' and message.chat.id == Admin:
         for i in Users.objects.all():
@@ -162,6 +162,16 @@ def echo_all(message):
             i.save()
         bot.send_message(Admin,
                          "<code>Barcha foydalanuvchilar holati aktivlashtirildi!\nAdmin tomonidan yubordilgan habarlar barcha foydalanuvchilarga ham jo`natiladi<code>")
+    elif message.text == '/deactivate' and message.chat.id == Admin:
+        for i in Users.objects.all():
+            if i.user_id == Admin:
+                pass
+            else:
+                i.active = False
+                i.step = 0
+                i.save()
+        bot.send_message(Admin,
+                         "<code>Barcha foydalanuvchilar holati muzlatildi!\nAdmin tomonidan yuborilgan elonlar boshqa foydlanuvchilarga yuborilmaydi<code>")
     elif message.text == "/stats" and message.chat.id == Admin:
         user = len(Users.objects.all())
         bot.send_message(Admin,
