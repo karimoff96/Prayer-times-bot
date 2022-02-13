@@ -162,16 +162,6 @@ def echo_all(message):
             i.save()
         bot.send_message(Admin,
                          "<code>Barcha foydalanuvchilar holati aktivlashtirildi!\nAdmin tomonidan yubordilgan habarlar barcha foydalanuvchilarga ham jo`natiladi<code>")
-    elif message.text == '/deactivate' and message.chat.id == Admin:
-        for i in Users.objects.all():
-            if i.user_id == Admin:
-                pass
-            else:
-                i.active = False
-                i.step = 0
-                i.save()
-        bot.send_message(Admin,
-                         "<code>Barcha foydalanuvchilar holati muzlatildi!\nAdmin tomonidan yuborilgan elonlar boshqa foydlanuvchilarga yuborilmaydi<code>")
     elif message.text == "/stats" and message.chat.id == Admin:
         user = len(Users.objects.all())
         bot.send_message(Admin,
