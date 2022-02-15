@@ -4,10 +4,7 @@ from telebot import types
 from .models import *
 import telebot
 from .prayer import pray_time
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import requests
-from django.core.files.storage import FileSystemStorage
-from django.core.files.base import ContentFile
+
 
 bot = telebot.TeleBot("5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0", parse_mode="HTML")
 # origin:5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0
