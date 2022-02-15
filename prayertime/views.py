@@ -4,6 +4,7 @@ from telebot import types
 from .models import *
 import telebot
 from .prayer import pray_time
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import requests
 from django.core.files.storage import FileSystemStorage
 from django.core.files.base import ContentFile
@@ -89,13 +90,15 @@ def echo_all(message):
         b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
         b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
         markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20)
-        bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>",
-                         reply_markup=markup)
-        markup1 = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        btn = types.KeyboardButton('🔙Ортга')
-        markup1.add(btn)
-        bot.send_message(message.from_user.id, "<i>Намоз вақтлари ҳудудларга қараб ўзгариши мумкин!</i>",
-                         reply_markup=markup1)
+        bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>", reply_markup=markup)
+        # markup1 = types.InlineKeyboardMarkup(row_width=1)
+        # btn = types.InlineKeyboardButton('🔙Ортга')
+        # btn1 = types.InlineKeyboardButton('🔄Янгилаш')
+        # markup1.add(btn, btn1)
+        # bot.send_message(message.from_user.id, "<i>Намоз вақтлари ҳудудларга қараб ўзгариши мумкин!</i>",
+        #                  reply_markup=markup1)
+
+
     elif message.text == '🕋Намоз ўрганиш':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
         b = types.KeyboardButton('👳‍♂Эркаклар учун')
@@ -139,16 +142,6 @@ def echo_all(message):
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
-    elif message.text == '🔙Ortga':
-        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
-        btn = types.KeyboardButton("⌛Намоз вақтлари")
-        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
-        markup.add(btn, btn1)
-        bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
-
-    # @bot.message_handler(func=lambda message: message.chat.id == Admin)
-    # def panel(message):
-    #     print('panel')
     elif message.text == '/send' and message.chat.id == Admin:
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
@@ -176,39 +169,79 @@ def echo_all(message):
         user = len(Users.objects.all())
         bot.send_message(Admin,
                          f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar:</b> {user}\n🧑🏻‍💻<b>Muallif:</b><i> @dkarimoff96</i>')
-
-
-def send(message):
-    if message.text == '🔙Ortga':
+    elif message.text == '🔙Ortga':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
         markup.add(btn, btn1)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
+
+def send(elon):
+    if elon.text == '🔙Ortga':
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        markup.add(btn, btn1)
+        bot.send_message(elon.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+
     else:
         for m in Users.objects.all():
             if m.active == True:
-                bot.forward_message(m.user_id, message.chat.id, message.id)
-        # markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
-        # btn = types.KeyboardButton("⌛Намоз вақтлари")
-        # btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
-        # markup.add(btn, btn1)
-        # bot.send_message(message.from_user.id, '<b><i>E`lon muvafaqqiyatli yuborildi!</i></b>')
-        # bot.copy_message(m.user_id, message.chat.id, message.message_id, reply_markup=markup)
+                bot.forward_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
 
-    # else:
-    #     markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
-    #     btn = types.KeyboardButton("⌛Намоз вақтлари")
-    #     btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
-    #     markup.add(btn, btn1)
-    #     bot.send_message(message.from_user.id,
-    #                      '<b><i>Ma`lumot qabul qilinmadi. Iltimos qaytadan urinib ko`ring!</i></b>',
-    #                      reply_markup=markup)
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        markup.add(btn, btn1)
+        bot.send_message(elon.from_user.id, '<code><i>E`lon foydalanuvchilarga muvaffaqiyatli jo`natildi</i></code>',
+                         reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
     if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74']:
-        bot.edit_message_text(chat_id=call.from_user.id, message_id=call.message.message_id, text=pray_time(call.data))
+        bot_user = Users.objects.get(user_id=call.from_user.id)
+        bot_user.address = call.data
+        bot_user.step = 3
+        bot_user.save()
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
+        item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
+        markup.add(item2, item1)
+        bot.edit_message_text(chat_id=call.from_user.id, text=pray_time(call.data), message_id=call.message.message_id,
+                              reply_markup=markup)
+    elif call.data == 'refresh':
+        bot_user = Users.objects.get(user_id=call.from_user.id)
+        markup = types.InlineKeyboardMarkup(row_width=1)
+        item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
+        item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
+        markup.add(item2, item1)
+        bot.delete_message(call.from_user.id, message_id=call.message.message_id)
+        bot.send_message(call.from_user.id, text=pray_time(bot_user.address), reply_markup=markup)
+    elif call.data == 'back':
+        markup = types.InlineKeyboardMarkup(row_width=2)
+        b = types.InlineKeyboardButton('🕌Тошкент', callback_data='27')
+        b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='37')
+        b2 = types.InlineKeyboardButton('🕌Андижон', callback_data='1')
+        b3 = types.InlineKeyboardButton('🕌Наманган', callback_data='15')
+        b4 = types.InlineKeyboardButton('🕌Бухоро', callback_data='4')
+        b5 = types.InlineKeyboardButton('🕌Жиззах', callback_data='9')
+        b6 = types.InlineKeyboardButton('🕌Қарши', callback_data='25')
+        b7 = types.InlineKeyboardButton('🕌Нукус', callback_data='16')
+        b8 = types.InlineKeyboardButton('🕌Самарқанд', callback_data='18')
+        b9 = types.InlineKeyboardButton('🕌Хива', callback_data='21')
+        b10 = types.InlineKeyboardButton('🕌Гулистон', callback_data='5')
+        b11 = types.InlineKeyboardButton('🕌Денов', callback_data='6')
+        b12 = types.InlineKeyboardButton('🕌Навоий', callback_data='14')
+        b13 = types.InlineKeyboardButton('🕌Қўқон', callback_data='26')
+        b14 = types.InlineKeyboardButton('🕌Марғилон', callback_data='13')
+        b15 = types.InlineKeyboardButton('🕌Бишкек', callback_data='3')
+        b16 = types.InlineKeyboardButton('🕌Туркмстон', callback_data='19')
+        b17 = types.InlineKeyboardButton('🕌Зарафшон', callback_data='61')
+        b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
+        b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
+        b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20)
+        bot.send_message(call.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>", reply_markup=markup)
