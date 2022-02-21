@@ -5,7 +5,6 @@ from .models import *
 import telebot
 from .prayer import pray_time
 
-
 bot = telebot.TeleBot("5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0", parse_mode="HTML")
 # origin:5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0
 # edit:1985195461:AAFSX-rnFK8zJAf-aqfqcOdZFaZ_Qu7t_QY
@@ -185,7 +184,7 @@ def send(elon):
     else:
         for m in Users.objects.all():
             if m.active == True:
-                bot.forward_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
+                bot.copy_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
 
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
