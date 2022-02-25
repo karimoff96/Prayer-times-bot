@@ -183,8 +183,7 @@ def send(elon):
 
     else:
         for m in Users.objects.all():
-            if m.active == True:
-                bot.copy_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
+            bot.copy_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
 
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
