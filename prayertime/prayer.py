@@ -9,11 +9,13 @@ def pray_time(a):
     soup1 = BeautifulSoup(response1.text, 'lxml')
     current_time = soup1.find('span', id='current_time').text  # current time
     date = soup1.find('h2', style='font-size: 24px; color: red').text[1:11]  # current date
+    print(soup1.find('div', class_='col-12 datatimes_prayer_title'))
 
-    url = f'https://islom.uz/vaqtlar/{a}/2'
+    url = f'https://islom.uz/vaqtlar/{a}/3'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'lxml')
     city_href = soup.find_all('tr', class_='p_day bugun')
+    # print(city_href)
     for i in city_href:
         table_data = i.find_all('td')
         data = [j.text for j in table_data]
@@ -24,7 +26,8 @@ def pray_time(a):
         asr = data[6]
         shom = data[7]
         xufton = data[8]
-        # print(kun, tong, quyosh, pewn, asr, shom, xufton)
+        # print(kun, tong, quyosh, pewn, asr, shom, xufton, date, current_time)
+# pray_time(1)
 
     dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '15': 'Наманган',
             '4': "Бухоро", '9': 'Жиззах', '25': 'Қарши', '16': 'Нукус',

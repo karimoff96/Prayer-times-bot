@@ -87,13 +87,6 @@ def echo_all(message):
         b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
         markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>", reply_markup=markup)
-        # markup1 = types.InlineKeyboardMarkup(row_width=1)
-        # btn = types.InlineKeyboardButton('🔙Ортга')
-        # btn1 = types.InlineKeyboardButton('🔄Янгилаш')
-        # markup1.add(btn, btn1)
-        # bot.send_message(message.from_user.id, "<i>Намоз вақтлари ҳудудларга қараб ўзгариши мумкин!</i>",
-        #                  reply_markup=markup1)
-
 
     elif message.text == '🕋Намоз ўрганиш':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
@@ -195,6 +188,7 @@ def send(elon):
 
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
+    print(call.data)
     if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74']:
         bot_user = Users.objects.get(user_id=call.from_user.id)
@@ -205,6 +199,7 @@ def call_data(call):
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
         item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
         markup.add(item2, item1)
+        print('asdasdasdasdas')
         bot.edit_message_text(chat_id=call.from_user.id, text=pray_time(call.data), message_id=call.message.message_id,
                               reply_markup=markup)
     elif call.data == 'refresh':
