@@ -5,7 +5,7 @@ from .models import *
 import telebot
 from .prayer import pray_time
 
-bot = telebot.TeleBot("1985195461:AAFSX-rnFK8zJAf-aqfqcOdZFaZ_Qu7t_QY", parse_mode="HTML")
+bot = telebot.TeleBot("5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0", parse_mode="HTML")
 # origin:5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0
 # edit:1985195461:AAFSX-rnFK8zJAf-aqfqcOdZFaZ_Qu7t_QY
 Admin = 419717087
