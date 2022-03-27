@@ -1,14 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 import datetime
+from datetime import timedelta
 
 
 def pray_time(a):
     while True:
         print(datetime.datetime.now().strftime("%H:%M:%S"), end="\r")
         # time.sleep(1)
-        now = datetime.datetime.now()
-        current_time = now.strftime("%H:%M:%S")
+        current_time = (datetime.datetime.now() + timedelta(hours=5)).strftime('%H:%M:%S')
         date = datetime.date.today()
         url = f'https://islom.uz/vaqtlar/{a}/{datetime.datetime.now().month}'
         response = requests.get(url)
