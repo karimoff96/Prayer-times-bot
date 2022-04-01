@@ -8,14 +8,18 @@ from zoneinfo import ZoneInfo
 def pray_time(a):
     while True:
         print(datetime.datetime.now().strftime("%H:%M:%S"), end="\r")
-        # time.sleep(1)
-        # current_time = (datetime.datetime.now() + timedelta(hours=5)).strftime('%H:%M:%S')
+        print(datetime.datetime.now().month)
         current_time = datetime.datetime.now(tz=ZoneInfo("Asia/Tashkent")).strftime('%H:%M:%S')
         date = datetime.date.today()
         url = f'https://islom.uz/vaqtlar/{a}/{datetime.datetime.now().month}'
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
-        city_href = soup.find_all('tr', class_='p_day bugun')
+        # print(soup)
+        if soup.find_all('tr', class_='juma bugun'):
+            city_href = soup.find_all('tr', class_='juma bugun')
+        else:
+            city_href = soup.find_all('tr', class_='p_day bugun')
+            print('yoq')
 
         for i in city_href:
             table_data = i.find_all('td')
@@ -28,8 +32,8 @@ def pray_time(a):
             shom = data[7]
             xufton = data[8]
             # print(kun, tong, quyosh, pewn, asr, shom, xufton, date, current_time)
-
-        # pray_time(1)
+#         break
+# pray_time(1)
 
         dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '15': 'Наманган',
                 '4': "Бухоро", '9': 'Жиззах', '25': 'Қарши', '16': 'Нукус',
@@ -38,8 +42,7 @@ def pray_time(a):
                 '61': 'Зарафшон', '20': 'Ўш', '78': 'Урганч', '74': 'Термиз'}
         if a in dict.keys():
             y = dict[a]
-
-        return f'⌛️<b>Намоз вақтлари <u><i>{y.upper()}</i></u> шаҳри бўйича:</b>\n' \
+        text = f'⌛️<b>Намоз вақтлари <u><i>{y.upper()}</i></u> шаҳри бўйича:</b>\n' \
                f'==============================\n' \
                f'🏙<b>Тонг(Саҳарлик):</b>      《<i>{tong}</i>》\n' \
                f'🌃<b>Куёш:</b>                         《<i>{quyosh}</i>》\n' \
@@ -51,3 +54,4 @@ def pray_time(a):
                f'🌃<b>Хуфтон:</b>                     《<i>{xufton}</i>》\n' \
                f'==============================\n' \
                f'📅 <u><b>Сана:</b> 《<i> {date}</i>》</u>  | <b><i>{kun}</i></b> | ⏱<u><b> Вақт:</b> 《<i> {current_time}</i>》</u>'
+        return text
