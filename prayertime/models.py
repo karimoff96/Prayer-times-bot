@@ -1,7 +1,8 @@
 from django.db import models
 
+
 # Create your models here.
-class Users(models.Model):
+class User(models.Model):
     user_id = models.BigIntegerField(default=0, unique=True)
     username = models.CharField(max_length=30, blank=True, null=True)
     first_name = models.CharField(max_length=30, blank=True, null=True)
@@ -19,8 +20,17 @@ class Users(models.Model):
         else:
             return self.username
 
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+        indexes = [
+            models.Index(fields=['username'])
+        ]
+
+
 class Media(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
     media = models.FileField(blank=True, null=True)
     active = models.BooleanField(default=True)
     cr_on = models.DateTimeField(auto_now_add=True)
+

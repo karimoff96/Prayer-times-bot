@@ -1,14 +1,16 @@
 from django.shortcuts import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+import telebot
 from telebot import types
 from .models import *
-import telebot
 from .prayer import pray_time
+from environs import Env
+import json
 
-bot = telebot.TeleBot("5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0", parse_mode="HTML")
-# origin:5135451825:AAHgPN401uzsCHyaHcFihbLrrHH_Fij1kb0
-# edit:1985195461:AAFSX-rnFK8zJAf-aqfqcOdZFaZ_Qu7t_QY
-Admin = 419717087
+env = Env()
+env.read_env()
+bot = telebot.TeleBot(env.str('TOKEN'), parse_mode="HTML")
+Admin = env.int('ADMIN')
 
 
 @csrf_exempt
@@ -26,8 +28,8 @@ def index(request):
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    if Users.objects.filter(user_id=message.from_user.id).exists():
-        bot_user = Users.objects.get(user_id=message.chat.id)
+    if User.objects.filter(user_id=message.from_user.id).exists():
+        bot_user = User.objects.get(user_id=message.chat.id)
         bot_user.active = True
         bot_user.step = 1
         bot_user.save()
@@ -35,22 +37,29 @@ def start(message):
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(message.from_user.id, text, reply_markup=markup)
+
     else:
         text = f'<b>Ассаламу алайкум {message.from_user.first_name}.</b>'
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(message.from_user.id, text, reply_markup=markup)
+
         if message.from_user.username != None:
             bot.send_message(Admin, f'<b>Yangi foydalanuvchi <i>@{message.from_user.username}</i></b>')
         else:
             bot.send_message(Admin, f'<b>Yangi foydalanuvchi <i>{message.from_user.id}</i></b>')
-        bot_user = Users.objects.create(
+        bot_user = User.objects.create(
             user_id=message.from_user.id,
             username=message.from_user.username,
+            first_name=message.from_user.first_name,
             active=True,
             step=1
         )
@@ -59,7 +68,7 @@ def start(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-    bot_user = Users.objects.get(user_id=message.chat.id)
+    bot_user = User.objects.get(user_id=message.chat.id)
     if message.text in ["⌛Намоз вақтлари"]:
         bot_user.step = 1
         bot_user.save()
@@ -90,14 +99,27 @@ def echo_all(message):
 
     elif message.text == '🕋Намоз ўрганиш':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        b = types.KeyboardButton('👳‍♂Эркаклар учун')
+        b = types.KeyboardButton('💦Тахотар')
+        b0 = types.KeyboardButton('👳‍♂Эркаклар учун')
         b1 = types.KeyboardButton('👳Аёллар учун')
         b2 = types.KeyboardButton('🔙Ортга')
-        markup.add(b, b1, b2)
+        markup.add(b)
+        markup.add(b0, b1, b2)
         bot.send_message(message.from_user.id, 'بِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم')
         bot.send_message(message.from_user.id,
                          f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>',
                          reply_markup=markup)
+
+    elif message.text == '💦Тахотар':
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/128', caption='Ният')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/129', caption='Қўл')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/130', caption='Оғиз')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/131', caption='Бурун')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/135', caption='Юз')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/134', caption='Тирсак')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/133', caption='Мустаҳаб')
+        bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/132', caption='Оёқ')
+
     elif message.text == '👳‍♂Эркаклар учун':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12982',
                        caption='Бомдод намози ўқиш тартиби. \n👳‍♂ Эркаклар учун.')
@@ -111,6 +133,7 @@ def echo_all(message):
                        caption='Хуфтон намози 4 ракат фарзи ўқиш тартиби. \nХуфтон намози икки ракат суннати овоз чиқармай ўқилади бомдод суннати каби. \n👳‍♂ Эркаклар учун.')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981',
                        caption='Тахаджуд намози.')
+
     elif message.text == '👳Аёллар учун':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12976',
                        caption='Аёллар учун Бомдод намозини ўқиш тартиби. \n👳 Аёллар учун.')
@@ -124,12 +147,28 @@ def echo_all(message):
                        caption='Аёллар учун  Хуфтон намозини ўқиш тартиби. \n👳 Аёллар учун.')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/ishonchlihadislar/12981',
                        caption='Тахаджуд намози.')
+
     elif message.text == '🔙Ортга':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+    elif message.text == '📜Қуръон оятлари':
+        markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+        b = types.KeyboardButton('🔙Ортга')
+        markup.add(b)
+        with open('./data.json', 'r') as file:
+            data = json.load(file)
+            for i in range(1, len(data) - 1, 3):
+                markup.add(types.KeyboardButton(data[i - 1]['sura']), types.KeyboardButton(data[i]['sura']),
+                           types.KeyboardButton(data[i + 1]['sura']))
+        markup.add(b)
+        bot.send_message(chat_id=message.from_user.id,
+                         text="🌚Қуръон оятлари бўлими\n➖➖➖➖➖➖➖➖➖➖➖\nБарча суралар Мишари Рашид томонидан ижро этилган\n➖➖➖➖➖➖➖➖➖➖➖\nСурани танланг🌞\n➖➖➖➖➖➖➖➖➖➖➖",
+                         reply_markup=markup)
 
     elif message.text == '/send' and message.chat.id == Admin:
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
@@ -137,32 +176,36 @@ def echo_all(message):
         markup.add(b)
         mesg = bot.send_message(Admin, '<code>Elonni kiriting:</code>', reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
+
     elif message.text == '/activate' and message.chat.id == Admin:
-        for i in Users.objects.all():
+        for i in User.objects.all():
             i.active = True
             i.step = 1
             i.save()
         bot.send_message(Admin,
                          "<code>Barcha foydalanuvchilar holati aktivlashtirildi!\nAdmin tomonidan yubordilgan habarlar barcha foydalanuvchilarga ham jo`natiladi</code>")
+
     elif message.text == '/deactivate' and message.chat.id == Admin:
-        for i in Users.objects.all():
-            if i.user_id == Admin:
-                pass
-            else:
+        for i in User.objects.all():
+            if i.user_id != Admin:
                 i.active = False
                 i.step = 0
                 i.save()
         bot.send_message(Admin,
                          "<code>Barcha foydalanuvchilar holati muzlatildi!\nAdmin tomonidan yuborilgan elonlar boshqa foydlanuvchilarga yuborilmaydi</code>")
+
     elif message.text == "/stats" and message.chat.id == Admin:
-        user = len(Users.objects.all())
+        user = len(User.objects.all())
         bot.send_message(Admin,
                          f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar:</b> {user}\n🧑🏻‍💻<b>Muallif:</b><i> @dkarimoff96</i>')
+
     elif message.text == '🔙Ortga':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
 
@@ -171,27 +214,29 @@ def send(elon):
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(elon.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
 
     else:
-        for m in Users.objects.all():
+        for m in User.objects.all():
             bot.copy_message(chat_id=m.user_id, from_chat_id=elon.chat.id, message_id=elon.id)
-
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1)
+        markup.add(btn2)
         bot.send_message(elon.from_user.id, '<code><i>E`lon foydalanuvchilarga muvaffaqiyatli jo`natildi</i></code>',
                          reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
-    print(call.data)
     if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74']:
-        bot_user = Users.objects.get(user_id=call.from_user.id)
+        bot_user = User.objects.get(user_id=call.from_user.id)
         bot_user.address = call.data
         bot_user.step = 3
         bot_user.save()
@@ -199,17 +244,18 @@ def call_data(call):
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
         item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
         markup.add(item2, item1)
-        print('asdasdasdasdas')
         bot.edit_message_text(chat_id=call.from_user.id, text=pray_time(call.data), message_id=call.message.message_id,
                               reply_markup=markup)
+
     elif call.data == 'refresh':
-        bot_user = Users.objects.get(user_id=call.from_user.id)
+        bot_user = User.objects.get(user_id=call.from_user.id)
         markup = types.InlineKeyboardMarkup(row_width=1)
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
         item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
         markup.add(item2, item1)
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
         bot.send_message(call.from_user.id, text=pray_time(bot_user.address), reply_markup=markup)
+
     elif call.data == 'back':
         markup = types.InlineKeyboardMarkup(row_width=2)
         b = types.InlineKeyboardButton('🕌Тошкент', callback_data='27')
