@@ -34,3 +34,8 @@ class Media(models.Model):
     active = models.BooleanField(default=True)
     cr_on = models.DateTimeField(auto_now_add=True)
 
+
+class Send(models.Model):
+    count = models.IntegerField()
+    current = models.IntegerField()
+    msg_id = models.BigIntegerField()

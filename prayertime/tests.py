@@ -115,15 +115,16 @@ Ixlos
 Falaq
 Nos'''
 import json
-# x = x.split()
-# data = []
-# for i in range(len(x)):
-#     data.append({'sura': f'{x[i]}', 'details': {'id': f'https://t.me/quran_u/{i + 3}', 'text': f'{x[i]} surasi'}})
-# with open('../data.json', 'w') as file:
-#     file.write(json.dumps(data))
 
-with open('../data.json', 'r') as file:
-    data = json.load(file)
+x = x.split()
+data = {}
+for i in range(len(x)):
+    data[f'{x[i]}'] = {'id': f'https://t.me/quran_u/{i + 3}', 'text': f'{x[i]} surasi'}
+    with open('../data.json', 'w') as file:
+        file.write(json.dumps(data))
 
-for i in range(len(data)):
-    print(data[i]['sura'])
+    # with open('../data.json', 'r') as file:
+    #     data = json.load(file)
+    #
+    # for i in range(len(data)):
+    #     print(data[i]['sura'])

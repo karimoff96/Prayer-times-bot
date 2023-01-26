@@ -1,800 +1,458 @@
-[
-  {
-    "sura": "Fotiha",
-    "details": {
-      "id": "https://t.me/quran_u/3",
-      "text": "Fotiha surasi"
-    }
-  },
-  {
-    "sura": "Baqara",
-    "details": {
-      "id": "https://t.me/quran_u/4",
-      "text": "Baqara surasi"
-    }
-  },
-  {
-    "sura": "Imron",
-    "details": {
-      "id": "https://t.me/quran_u/5",
-      "text": "Imron surasi"
-    }
-  },
-  {
-    "sura": "Niso",
-    "details": {
-      "id": "https://t.me/quran_u/6",
-      "text": "Niso surasi"
-    }
-  },
-  {
-    "sura": "Maida",
-    "details": {
-      "id": "https://t.me/quran_u/7",
-      "text": "Maida surasi"
-    }
-  },
-  {
-    "sura": "Anam",
-    "details": {
-      "id": "https://t.me/quran_u/8",
-      "text": "Anam surasi"
-    }
-  },
-  {
-    "sura": "Arof",
-    "details": {
-      "id": "https://t.me/quran_u/9",
-      "text": "Arof surasi"
-    }
-  },
-  {
-    "sura": "Anfol",
-    "details": {
-      "id": "https://t.me/quran_u/10",
-      "text": "Anfol surasi"
-    }
-  },
-  {
-    "sura": "Tavba",
-    "details": {
-      "id": "https://t.me/quran_u/11",
-      "text": "Tavba surasi"
-    }
-  },
-  {
-    "sura": "Yunus",
-    "details": {
-      "id": "https://t.me/quran_u/12",
-      "text": "Yunus surasi"
-    }
-  },
-  {
-    "sura": "Hud",
-    "details": {
-      "id": "https://t.me/quran_u/13",
-      "text": "Hud surasi"
-    }
-  },
-  {
-    "sura": "Yusuf",
-    "details": {
-      "id": "https://t.me/quran_u/14",
-      "text": "Yusuf surasi"
-    }
-  },
-  {
-    "sura": "Rad",
-    "details": {
-      "id": "https://t.me/quran_u/15",
-      "text": "Rad surasi"
-    }
-  },
-  {
-    "sura": "Ibrohim",
-    "details": {
-      "id": "https://t.me/quran_u/16",
-      "text": "Ibrohim surasi"
-    }
-  },
-  {
-    "sura": "Hijr",
-    "details": {
-      "id": "https://t.me/quran_u/17",
-      "text": "Hijr surasi"
-    }
-  },
-  {
-    "sura": "Nahl",
-    "details": {
-      "id": "https://t.me/quran_u/18",
-      "text": "Nahl surasi"
-    }
-  },
-  {
-    "sura": "Isro",
-    "details": {
-      "id": "https://t.me/quran_u/19",
-      "text": "Isro surasi"
-    }
-  },
-  {
-    "sura": "Kahf",
-    "details": {
-      "id": "https://t.me/quran_u/20",
-      "text": "Kahf surasi"
-    }
-  },
-  {
-    "sura": "Maryam",
-    "details": {
-      "id": "https://t.me/quran_u/21",
-      "text": "Maryam surasi"
-    }
-  },
-  {
-    "sura": "Toha",
-    "details": {
-      "id": "https://t.me/quran_u/22",
-      "text": "Toha surasi"
-    }
-  },
-  {
-    "sura": "Anbiyo",
-    "details": {
-      "id": "https://t.me/quran_u/23",
-      "text": "Anbiyo surasi"
-    }
-  },
-  {
-    "sura": "Haj",
-    "details": {
-      "id": "https://t.me/quran_u/24",
-      "text": "Haj surasi"
-    }
-  },
-  {
-    "sura": "Muminun",
-    "details": {
-      "id": "https://t.me/quran_u/25",
-      "text": "Muminun surasi"
-    }
-  },
-  {
-    "sura": "Nur",
-    "details": {
-      "id": "https://t.me/quran_u/26",
-      "text": "Nur surasi"
-    }
-  },
-  {
-    "sura": "Furqon",
-    "details": {
-      "id": "https://t.me/quran_u/27",
-      "text": "Furqon surasi"
-    }
-  },
-  {
-    "sura": "Shuaro",
-    "details": {
-      "id": "https://t.me/quran_u/28",
-      "text": "Shuaro surasi"
-    }
-  },
-  {
-    "sura": "Naml",
-    "details": {
-      "id": "https://t.me/quran_u/29",
-      "text": "Naml surasi"
-    }
-  },
-  {
-    "sura": "Qasos",
-    "details": {
-      "id": "https://t.me/quran_u/30",
-      "text": "Qasos surasi"
-    }
-  },
-  {
-    "sura": "Ankabut",
-    "details": {
-      "id": "https://t.me/quran_u/31",
-      "text": "Ankabut surasi"
-    }
-  },
-  {
-    "sura": "Rum",
-    "details": {
-      "id": "https://t.me/quran_u/32",
-      "text": "Rum surasi"
-    }
-  },
-  {
-    "sura": "Luqmon",
-    "details": {
-      "id": "https://t.me/quran_u/33",
-      "text": "Luqmon surasi"
-    }
-  },
-  {
-    "sura": "Sajda",
-    "details": {
-      "id": "https://t.me/quran_u/34",
-      "text": "Sajda surasi"
-    }
-  },
-  {
-    "sura": "Ahzob",
-    "details": {
-      "id": "https://t.me/quran_u/35",
-      "text": "Ahzob surasi"
-    }
-  },
-  {
-    "sura": "Saba",
-    "details": {
-      "id": "https://t.me/quran_u/36",
-      "text": "Saba surasi"
-    }
-  },
-  {
-    "sura": "Fotir",
-    "details": {
-      "id": "https://t.me/quran_u/37",
-      "text": "Fotir surasi"
-    }
-  },
-  {
-    "sura": "Yosin",
-    "details": {
-      "id": "https://t.me/quran_u/38",
-      "text": "Yosin surasi"
-    }
-  },
-  {
-    "sura": "Soffat",
-    "details": {
-      "id": "https://t.me/quran_u/39",
-      "text": "Soffat surasi"
-    }
-  },
-  {
-    "sura": "Sod",
-    "details": {
-      "id": "https://t.me/quran_u/40",
-      "text": "Sod surasi"
-    }
-  },
-  {
-    "sura": "Zumar",
-    "details": {
-      "id": "https://t.me/quran_u/41",
-      "text": "Zumar surasi"
-    }
-  },
-  {
-    "sura": "Gofir",
-    "details": {
-      "id": "https://t.me/quran_u/42",
-      "text": "Gofir surasi"
-    }
-  },
-  {
-    "sura": "Fussilat",
-    "details": {
-      "id": "https://t.me/quran_u/43",
-      "text": "Fussilat surasi"
-    }
-  },
-  {
-    "sura": "Shoro",
-    "details": {
-      "id": "https://t.me/quran_u/44",
-      "text": "Shoro surasi"
-    }
-  },
-  {
-    "sura": "Zuxruf",
-    "details": {
-      "id": "https://t.me/quran_u/45",
-      "text": "Zuxruf surasi"
-    }
-  },
-  {
-    "sura": "Zuhan",
-    "details": {
-      "id": "https://t.me/quran_u/46",
-      "text": "Zuhan surasi"
-    }
-  },
-  {
-    "sura": "Jathiya",
-    "details": {
-      "id": "https://t.me/quran_u/47",
-      "text": "Jathiya surasi"
-    }
-  },
-  {
-    "sura": "Ahqaf",
-    "details": {
-      "id": "https://t.me/quran_u/48",
-      "text": "Ahqaf surasi"
-    }
-  },
-  {
-    "sura": "Muhammad",
-    "details": {
-      "id": "https://t.me/quran_u/49",
-      "text": "Muhammad surasi"
-    }
-  },
-  {
-    "sura": "Fath",
-    "details": {
-      "id": "https://t.me/quran_u/50",
-      "text": "Fath surasi"
-    }
-  },
-  {
-    "sura": "Hujurat",
-    "details": {
-      "id": "https://t.me/quran_u/51",
-      "text": "Hujurat surasi"
-    }
-  },
-  {
-    "sura": "Qof",
-    "details": {
-      "id": "https://t.me/quran_u/52",
-      "text": "Qof surasi"
-    }
-  },
-  {
-    "sura": "Zuriyat",
-    "details": {
-      "id": "https://t.me/quran_u/53",
-      "text": "Zuriyat surasi"
-    }
-  },
-  {
-    "sura": "Tur",
-    "details": {
-      "id": "https://t.me/quran_u/54",
-      "text": "Tur surasi"
-    }
-  },
-  {
-    "sura": "Najim",
-    "details": {
-      "id": "https://t.me/quran_u/55",
-      "text": "Najim surasi"
-    }
-  },
-  {
-    "sura": "Qamar",
-    "details": {
-      "id": "https://t.me/quran_u/56",
-      "text": "Qamar surasi"
-    }
-  },
-  {
-    "sura": "Rohman",
-    "details": {
-      "id": "https://t.me/quran_u/57",
-      "text": "Rohman surasi"
-    }
-  },
-  {
-    "sura": "Voqiya",
-    "details": {
-      "id": "https://t.me/quran_u/58",
-      "text": "Voqiya surasi"
-    }
-  },
-  {
-    "sura": "Hadid",
-    "details": {
-      "id": "https://t.me/quran_u/59",
-      "text": "Hadid surasi"
-    }
-  },
-  {
-    "sura": "Mujadila",
-    "details": {
-      "id": "https://t.me/quran_u/60",
-      "text": "Mujadila surasi"
-    }
-  },
-  {
-    "sura": "Hashir",
-    "details": {
-      "id": "https://t.me/quran_u/61",
-      "text": "Hashir surasi"
-    }
-  },
-  {
-    "sura": "Mumtahina",
-    "details": {
-      "id": "https://t.me/quran_u/62",
-      "text": "Mumtahina surasi"
-    }
-  },
-  {
-    "sura": "Soff",
-    "details": {
-      "id": "https://t.me/quran_u/63",
-      "text": "Soff surasi"
-    }
-  },
-  {
-    "sura": "Juma",
-    "details": {
-      "id": "https://t.me/quran_u/64",
-      "text": "Juma surasi"
-    }
-  },
-  {
-    "sura": "Munofiqun",
-    "details": {
-      "id": "https://t.me/quran_u/65",
-      "text": "Munofiqun surasi"
-    }
-  },
-  {
-    "sura": "Taghabun",
-    "details": {
-      "id": "https://t.me/quran_u/66",
-      "text": "Taghabun surasi"
-    }
-  },
-  {
-    "sura": "Taloq",
-    "details": {
-      "id": "https://t.me/quran_u/67",
-      "text": "Taloq surasi"
-    }
-  },
-  {
-    "sura": "Tahrim",
-    "details": {
-      "id": "https://t.me/quran_u/68",
-      "text": "Tahrim surasi"
-    }
-  },
-  {
-    "sura": "Mulk",
-    "details": {
-      "id": "https://t.me/quran_u/69",
-      "text": "Mulk surasi"
-    }
-  },
-  {
-    "sura": "Qalam",
-    "details": {
-      "id": "https://t.me/quran_u/70",
-      "text": "Qalam surasi"
-    }
-  },
-  {
-    "sura": "Haqqa",
-    "details": {
-      "id": "https://t.me/quran_u/71",
-      "text": "Haqqa surasi"
-    }
-  },
-  {
-    "sura": "Muorij",
-    "details": {
-      "id": "https://t.me/quran_u/72",
-      "text": "Muorij surasi"
-    }
-  },
-  {
-    "sura": "Nuh",
-    "details": {
-      "id": "https://t.me/quran_u/73",
-      "text": "Nuh surasi"
-    }
-  },
-  {
-    "sura": "jinn",
-    "details": {
-      "id": "https://t.me/quran_u/74",
-      "text": "jinn surasi"
-    }
-  },
-  {
-    "sura": "Muzzammil",
-    "details": {
-      "id": "https://t.me/quran_u/75",
-      "text": "Muzzammil surasi"
-    }
-  },
-  {
-    "sura": "Muddathir",
-    "details": {
-      "id": "https://t.me/quran_u/76",
-      "text": "Muddathir surasi"
-    }
-  },
-  {
-    "sura": "Qiyama",
-    "details": {
-      "id": "https://t.me/quran_u/77",
-      "text": "Qiyama surasi"
-    }
-  },
-  {
-    "sura": "Insan",
-    "details": {
-      "id": "https://t.me/quran_u/78",
-      "text": "Insan surasi"
-    }
-  },
-  {
-    "sura": "Mursalat",
-    "details": {
-      "id": "https://t.me/quran_u/79",
-      "text": "Mursalat surasi"
-    }
-  },
-  {
-    "sura": "Naba",
-    "details": {
-      "id": "https://t.me/quran_u/80",
-      "text": "Naba surasi"
-    }
-  },
-  {
-    "sura": "Naziat",
-    "details": {
-      "id": "https://t.me/quran_u/81",
-      "text": "Naziat surasi"
-    }
-  },
-  {
-    "sura": "Abasa",
-    "details": {
-      "id": "https://t.me/quran_u/82",
-      "text": "Abasa surasi"
-    }
-  },
-  {
-    "sura": "Takawir",
-    "details": {
-      "id": "https://t.me/quran_u/83",
-      "text": "Takawir surasi"
-    }
-  },
-  {
-    "sura": "Infitar",
-    "details": {
-      "id": "https://t.me/quran_u/84",
-      "text": "Infitar surasi"
-    }
-  },
-  {
-    "sura": "Mutaffifeen",
-    "details": {
-      "id": "https://t.me/quran_u/85",
-      "text": "Mutaffifeen surasi"
-    }
-  },
-  {
-    "sura": "Inshiqaq",
-    "details": {
-      "id": "https://t.me/quran_u/86",
-      "text": "Inshiqaq surasi"
-    }
-  },
-  {
-    "sura": "Burooj",
-    "details": {
-      "id": "https://t.me/quran_u/87",
-      "text": "Burooj surasi"
-    }
-  },
-  {
-    "sura": "Tariq",
-    "details": {
-      "id": "https://t.me/quran_u/88",
-      "text": "Tariq surasi"
-    }
-  },
-  {
-    "sura": "Ala",
-    "details": {
-      "id": "https://t.me/quran_u/89",
-      "text": "Ala surasi"
-    }
-  },
-  {
-    "sura": "Ghashiya",
-    "details": {
-      "id": "https://t.me/quran_u/90",
-      "text": "Ghashiya surasi"
-    }
-  },
-  {
-    "sura": "Fajir",
-    "details": {
-      "id": "https://t.me/quran_u/91",
-      "text": "Fajir surasi"
-    }
-  },
-  {
-    "sura": "Balad",
-    "details": {
-      "id": "https://t.me/quran_u/92",
-      "text": "Balad surasi"
-    }
-  },
-  {
-    "sura": "Shams",
-    "details": {
-      "id": "https://t.me/quran_u/93",
-      "text": "Shams surasi"
-    }
-  },
-  {
-    "sura": "Lail",
-    "details": {
-      "id": "https://t.me/quran_u/94",
-      "text": "Lail surasi"
-    }
-  },
-  {
-    "sura": "Dhuha",
-    "details": {
-      "id": "https://t.me/quran_u/95",
-      "text": "Dhuha surasi"
-    }
-  },
-  {
-    "sura": "Sharh",
-    "details": {
-      "id": "https://t.me/quran_u/96",
-      "text": "Sharh surasi"
-    }
-  },
-  {
-    "sura": "Teen",
-    "details": {
-      "id": "https://t.me/quran_u/97",
-      "text": "Teen surasi"
-    }
-  },
-  {
-    "sura": "falaq",
-    "details": {
-      "id": "https://t.me/quran_u/98",
-      "text": "falaq surasi"
-    }
-  },
-  {
-    "sura": "Qadr",
-    "details": {
-      "id": "https://t.me/quran_u/99",
-      "text": "Qadr surasi"
-    }
-  },
-  {
-    "sura": "Bayyina",
-    "details": {
-      "id": "https://t.me/quran_u/100",
-      "text": "Bayyina surasi"
-    }
-  },
-  {
-    "sura": "Zilzila",
-    "details": {
-      "id": "https://t.me/quran_u/101",
-      "text": "Zilzila surasi"
-    }
-  },
-  {
-    "sura": "Adiyat",
-    "details": {
-      "id": "https://t.me/quran_u/102",
-      "text": "Adiyat surasi"
-    }
-  },
-  {
-    "sura": "Qaria",
-    "details": {
-      "id": "https://t.me/quran_u/103",
-      "text": "Qaria surasi"
-    }
-  },
-  {
-    "sura": "Takathur",
-    "details": {
-      "id": "https://t.me/quran_u/104",
-      "text": "Takathur surasi"
-    }
-  },
-  {
-    "sura": "Asr",
-    "details": {
-      "id": "https://t.me/quran_u/105",
-      "text": "Asr surasi"
-    }
-  },
-  {
-    "sura": "Hamza",
-    "details": {
-      "id": "https://t.me/quran_u/106",
-      "text": "Hamza surasi"
-    }
-  },
-  {
-    "sura": "Fil",
-    "details": {
-      "id": "https://t.me/quran_u/107",
-      "text": "Fil surasi"
-    }
-  },
-  {
-    "sura": "Quraysh",
-    "details": {
-      "id": "https://t.me/quran_u/108",
-      "text": "Quraysh surasi"
-    }
-  },
-  {
-    "sura": "Moun",
-    "details": {
-      "id": "https://t.me/quran_u/109",
-      "text": "Moun surasi"
-    }
-  },
-  {
-    "sura": "Kavsar",
-    "details": {
-      "id": "https://t.me/quran_u/110",
-      "text": "Kavsar surasi"
-    }
-  },
-  {
-    "sura": "Kofirun",
-    "details": {
-      "id": "https://t.me/quran_u/111",
-      "text": "Kofirun surasi"
-    }
-  },
-  {
-    "sura": "Nosr",
-    "details": {
-      "id": "https://t.me/quran_u/112",
-      "text": "Nosr surasi"
-    }
-  },
-  {
-    "sura": "Masad",
-    "details": {
-      "id": "https://t.me/quran_u/113",
-      "text": "Masad surasi"
-    }
-  },
-  {
-    "sura": "Ixlos",
-    "details": {
-      "id": "https://t.me/quran_u/114",
-      "text": "Ixlos surasi"
-    }
-  },
-  {
-    "sura": "Falaq",
-    "details": {
-      "id": "https://t.me/quran_u/115",
-      "text": "Falaq surasi"
-    }
-  },
-  {
-    "sura": "Nos",
-    "details": {
-      "id": "https://t.me/quran_u/116",
-      "text": "Nos surasi"
-    }
+{
+  "Fotiha": {
+    "id": "https://t.me/quran_u/3",
+    "text": "Бисмил-ляяхи ррахмаани ррахиим.\nАль-хамду лил-ляяхи раббиль-‘аалямиин.\nАр-рахмаани ррахиим.\nМяялики яумид-диин.\nИйяякя на’буду ва ийяякя наста’иин.\nИхдина ссырааталь-мустакыим.\nСыраатол-лязийна ан’амта ‘аляйхим, гайриль-магдууби ‘аляйхим ва ляд-дооллиин. Амин"
+  },
+  "Baqara": {
+    "id": "https://t.me/quran_u/4",
+    "text": "Baqara surasi"
+  },
+  "Imron": {
+    "id": "https://t.me/quran_u/5",
+    "text": "Imron surasi"
+  },
+  "Niso": {
+    "id": "https://t.me/quran_u/6",
+    "text": "Niso surasi"
+  },
+  "Maida": {
+    "id": "https://t.me/quran_u/7",
+    "text": "Maida surasi"
+  },
+  "Anam": {
+    "id": "https://t.me/quran_u/8",
+    "text": "Anam surasi"
+  },
+  "Arof": {
+    "id": "https://t.me/quran_u/9",
+    "text": "Arof surasi"
+  },
+  "Anfol": {
+    "id": "https://t.me/quran_u/10",
+    "text": "Anfol surasi"
+  },
+  "Tavba": {
+    "id": "https://t.me/quran_u/11",
+    "text": "Tavba surasi"
+  },
+  "Yunus": {
+    "id": "https://t.me/quran_u/12",
+    "text": "Yunus surasi"
+  },
+  "Hud": {
+    "id": "https://t.me/quran_u/13",
+    "text": "Hud surasi"
+  },
+  "Yusuf": {
+    "id": "https://t.me/quran_u/14",
+    "text": "Yusuf surasi"
+  },
+  "Rad": {
+    "id": "https://t.me/quran_u/15",
+    "text": "Rad surasi"
+  },
+  "Ibrohim": {
+    "id": "https://t.me/quran_u/16",
+    "text": "Ibrohim surasi"
+  },
+  "Hijr": {
+    "id": "https://t.me/quran_u/17",
+    "text": "Hijr surasi"
+  },
+  "Nahl": {
+    "id": "https://t.me/quran_u/18",
+    "text": "Nahl surasi"
+  },
+  "Isro": {
+    "id": "https://t.me/quran_u/19",
+    "text": "Isro surasi"
+  },
+  "Kahf": {
+    "id": "https://t.me/quran_u/20",
+    "text": "Kahf surasi"
+  },
+  "Maryam": {
+    "id": "https://t.me/quran_u/21",
+    "text": "Maryam surasi"
+  },
+  "Toha": {
+    "id": "https://t.me/quran_u/22",
+    "text": "Toha surasi"
+  },
+  "Anbiyo": {
+    "id": "https://t.me/quran_u/23",
+    "text": "Anbiyo surasi"
+  },
+  "Haj": {
+    "id": "https://t.me/quran_u/24",
+    "text": "Haj surasi"
+  },
+  "Muminun": {
+    "id": "https://t.me/quran_u/25",
+    "text": "Muminun surasi"
+  },
+  "Nur": {
+    "id": "https://t.me/quran_u/26",
+    "text": "Nur surasi"
+  },
+  "Furqon": {
+    "id": "https://t.me/quran_u/27",
+    "text": "Furqon surasi"
+  },
+  "Shuaro": {
+    "id": "https://t.me/quran_u/28",
+    "text": "Shuaro surasi"
+  },
+  "Naml": {
+    "id": "https://t.me/quran_u/29",
+    "text": "Naml surasi"
+  },
+  "Qasos": {
+    "id": "https://t.me/quran_u/30",
+    "text": "Qasos surasi"
+  },
+  "Ankabut": {
+    "id": "https://t.me/quran_u/31",
+    "text": "Ankabut surasi"
+  },
+  "Rum": {
+    "id": "https://t.me/quran_u/32",
+    "text": "Rum surasi"
+  },
+  "Luqmon": {
+    "id": "https://t.me/quran_u/33",
+    "text": "Luqmon surasi"
+  },
+  "Sajda": {
+    "id": "https://t.me/quran_u/34",
+    "text": "Sajda surasi"
+  },
+  "Ahzob": {
+    "id": "https://t.me/quran_u/35",
+    "text": "Ahzob surasi"
+  },
+  "Saba": {
+    "id": "https://t.me/quran_u/36",
+    "text": "Saba surasi"
+  },
+  "Fotir": {
+    "id": "https://t.me/quran_u/37",
+    "text": "Fotir surasi"
+  },
+  "Yosin": {
+    "id": "https://t.me/quran_u/38",
+    "text": "Yosin surasi"
+  },
+  "Soffat": {
+    "id": "https://t.me/quran_u/39",
+    "text": "Soffat surasi"
+  },
+  "Sod": {
+    "id": "https://t.me/quran_u/40",
+    "text": "Sod surasi"
+  },
+  "Zumar": {
+    "id": "https://t.me/quran_u/41",
+    "text": "Zumar surasi"
+  },
+  "Gofir": {
+    "id": "https://t.me/quran_u/42",
+    "text": "Gofir surasi"
+  },
+  "Fussilat": {
+    "id": "https://t.me/quran_u/43",
+    "text": "Fussilat surasi"
+  },
+  "Shoro": {
+    "id": "https://t.me/quran_u/44",
+    "text": "Shoro surasi"
+  },
+  "Zuxruf": {
+    "id": "https://t.me/quran_u/45",
+    "text": "Zuxruf surasi"
+  },
+  "Zuhan": {
+    "id": "https://t.me/quran_u/46",
+    "text": "Zuhan surasi"
+  },
+  "Jathiya": {
+    "id": "https://t.me/quran_u/47",
+    "text": "Jathiya surasi"
+  },
+  "Ahqaf": {
+    "id": "https://t.me/quran_u/48",
+    "text": "Ahqaf surasi"
+  },
+  "Muhammad": {
+    "id": "https://t.me/quran_u/49",
+    "text": "Muhammad surasi"
+  },
+  "Fath": {
+    "id": "https://t.me/quran_u/50",
+    "text": "Fath surasi"
+  },
+  "Hujurat": {
+    "id": "https://t.me/quran_u/51",
+    "text": "Hujurat surasi"
+  },
+  "Qof": {
+    "id": "https://t.me/quran_u/52",
+    "text": "Qof surasi"
+  },
+  "Zuriyat": {
+    "id": "https://t.me/quran_u/53",
+    "text": "Zuriyat surasi"
+  },
+  "Tur": {
+    "id": "https://t.me/quran_u/54",
+    "text": "Tur surasi"
+  },
+  "Najim": {
+    "id": "https://t.me/quran_u/55",
+    "text": "Najim surasi"
+  },
+  "Qamar": {
+    "id": "https://t.me/quran_u/56",
+    "text": "Qamar surasi"
+  },
+  "Rohman": {
+    "id": "https://t.me/quran_u/57",
+    "text": "Rohman surasi"
+  },
+  "Voqiya": {
+    "id": "https://t.me/quran_u/58",
+    "text": "Voqiya surasi"
+  },
+  "Hadid": {
+    "id": "https://t.me/quran_u/59",
+    "text": "Hadid surasi"
+  },
+  "Mujadila": {
+    "id": "https://t.me/quran_u/60",
+    "text": "Mujadila surasi"
+  },
+  "Hashir": {
+    "id": "https://t.me/quran_u/61",
+    "text": "Hashir surasi"
+  },
+  "Mumtahina": {
+    "id": "https://t.me/quran_u/62",
+    "text": "Mumtahina surasi"
+  },
+  "Soff": {
+    "id": "https://t.me/quran_u/63",
+    "text": "Soff surasi"
+  },
+  "Juma": {
+    "id": "https://t.me/quran_u/64",
+    "text": "Juma surasi"
+  },
+  "Munofiqun": {
+    "id": "https://t.me/quran_u/65",
+    "text": "Munofiqun surasi"
+  },
+  "Taghabun": {
+    "id": "https://t.me/quran_u/66",
+    "text": "Taghabun surasi"
+  },
+  "Taloq": {
+    "id": "https://t.me/quran_u/67",
+    "text": "Taloq surasi"
+  },
+  "Tahrim": {
+    "id": "https://t.me/quran_u/68",
+    "text": "Tahrim surasi"
+  },
+  "Mulk": {
+    "id": "https://t.me/quran_u/69",
+    "text": "Mulk surasi"
+  },
+  "Qalam": {
+    "id": "https://t.me/quran_u/70",
+    "text": "Qalam surasi"
+  },
+  "Haqqa": {
+    "id": "https://t.me/quran_u/71",
+    "text": "Haqqa surasi"
+  },
+  "Muorij": {
+    "id": "https://t.me/quran_u/72",
+    "text": "Muorij surasi"
+  },
+  "Nuh": {
+    "id": "https://t.me/quran_u/73",
+    "text": "Nuh surasi"
+  },
+  "jinn": {
+    "id": "https://t.me/quran_u/74",
+    "text": "jinn surasi"
+  },
+  "Muzzammil": {
+    "id": "https://t.me/quran_u/75",
+    "text": "Muzzammil surasi"
+  },
+  "Muddathir": {
+    "id": "https://t.me/quran_u/76",
+    "text": "Muddathir surasi"
+  },
+  "Qiyama": {
+    "id": "https://t.me/quran_u/77",
+    "text": "Qiyama surasi"
+  },
+  "Insan": {
+    "id": "https://t.me/quran_u/78",
+    "text": "Insan surasi"
+  },
+  "Mursalat": {
+    "id": "https://t.me/quran_u/79",
+    "text": "Mursalat surasi"
+  },
+  "Naba": {
+    "id": "https://t.me/quran_u/80",
+    "text": "Naba surasi"
+  },
+  "Naziat": {
+    "id": "https://t.me/quran_u/81",
+    "text": "Naziat surasi"
+  },
+  "Abasa": {
+    "id": "https://t.me/quran_u/82",
+    "text": "Abasa surasi"
+  },
+  "Takawir": {
+    "id": "https://t.me/quran_u/83",
+    "text": "Takawir surasi"
+  },
+  "Infitar": {
+    "id": "https://t.me/quran_u/84",
+    "text": "Infitar surasi"
+  },
+  "Mutaffifeen": {
+    "id": "https://t.me/quran_u/85",
+    "text": "Mutaffifeen surasi"
+  },
+  "Inshiqaq": {
+    "id": "https://t.me/quran_u/86",
+    "text": "Inshiqaq surasi"
+  },
+  "Burooj": {
+    "id": "https://t.me/quran_u/87",
+    "text": "Burooj surasi"
+  },
+  "Tariq": {
+    "id": "https://t.me/quran_u/88",
+    "text": "Tariq surasi"
+  },
+  "Ala": {
+    "id": "https://t.me/quran_u/89",
+    "text": "Ala surasi"
+  },
+  "Ghashiya": {
+    "id": "https://t.me/quran_u/90",
+    "text": "Ghashiya surasi"
+  },
+  "Fajir": {
+    "id": "https://t.me/quran_u/91",
+    "text": "Fajir surasi"
+  },
+  "Balad": {
+    "id": "https://t.me/quran_u/92",
+    "text": "Balad surasi"
+  },
+  "Shams": {
+    "id": "https://t.me/quran_u/93",
+    "text": "Shams surasi"
+  },
+  "Lail": {
+    "id": "https://t.me/quran_u/94",
+    "text": "Lail surasi"
+  },
+  "Dhuha": {
+    "id": "https://t.me/quran_u/95",
+    "text": "Dhuha surasi"
+  },
+  "Sharh": {
+    "id": "https://t.me/quran_u/96",
+    "text": "Sharh surasi"
+  },
+  "Teen": {
+    "id": "https://t.me/quran_u/97",
+    "text": "Teen surasi"
+  },
+  "falaq": {
+    "id": "https://t.me/quran_u/98",
+    "text": "falaq surasi"
+  },
+  "Qadr": {
+    "id": "https://t.me/quran_u/99",
+    "text": "Qadr surasi"
+  },
+  "Bayyina": {
+    "id": "https://t.me/quran_u/100",
+    "text": "Bayyina surasi"
+  },
+  "Zilzila": {
+    "id": "https://t.me/quran_u/101",
+    "text": "Zilzila surasi"
+  },
+  "Adiyat": {
+    "id": "https://t.me/quran_u/102",
+    "text": "Adiyat surasi"
+  },
+  "Qaria": {
+    "id": "https://t.me/quran_u/103",
+    "text": "Qaria surasi"
+  },
+  "Takathur": {
+    "id": "https://t.me/quran_u/104",
+    "text": "Takathur surasi"
+  },
+  "Asr": {
+    "id": "https://t.me/quran_u/105",
+    "text": "Asr surasi"
+  },
+  "Hamza": {
+    "id": "https://t.me/quran_u/106",
+    "text": "Hamza surasi"
+  },
+  "Fil": {
+    "id": "https://t.me/quran_u/107",
+    "text": "Fil surasi"
+  },
+  "Quraysh": {
+    "id": "https://t.me/quran_u/108",
+    "text": "Quraysh surasi"
+  },
+  "Moun": {
+    "id": "https://t.me/quran_u/109",
+    "text": "Moun surasi"
+  },
+  "Kavsar": {
+    "id": "https://t.me/quran_u/110",
+    "text": "Kavsar surasi"
+  },
+  "Kofirun": {
+    "id": "https://t.me/quran_u/111",
+    "text": "Kofirun surasi"
+  },
+  "Nosr": {
+    "id": "https://t.me/quran_u/112",
+    "text": "Nosr surasi"
+  },
+  "Masad": {
+    "id": "https://t.me/quran_u/113",
+    "text": "Masad surasi"
+  },
+  "Ixlos": {
+    "id": "https://t.me/quran_u/114",
+    "text": "Ixlos surasi"
+  },
+  "Falaq": {
+    "id": "https://t.me/quran_u/115",
+    "text": "Falaq surasi"
+  },
+  "Nos": {
+    "id": "https://t.me/quran_u/116",
+    "text": "Nos surasi"
   }
-]
+}

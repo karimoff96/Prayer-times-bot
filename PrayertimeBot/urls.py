@@ -19,4 +19,6 @@ from prayertime.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='handler'),
+    path('send/', cronsend, name='send'),
+
 ]

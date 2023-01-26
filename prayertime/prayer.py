@@ -1,3 +1,5 @@
+import json
+
 import requests
 from bs4 import BeautifulSoup
 import datetime
@@ -47,3 +49,9 @@ def pray_time(a):
                f'==============================\n\n' \
                f'📅 <u><b>Сана:</b> <i> {date}</i></u>    | 📍<u><b>Кун:</b> <i>{kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {current_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
         return text
+
+
+def surahs(sura):
+    with open('./data.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data[sura]
