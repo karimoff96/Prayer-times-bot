@@ -7,6 +7,7 @@ from environs import Env
 from telebot.apihelper import ApiTelegramException
 from .models import Send
 from django.http import HttpResponse
+from django.shortcuts import redirect
 
 env = Env()
 env.read_env()
