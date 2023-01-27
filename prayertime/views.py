@@ -240,7 +240,7 @@ def echo_all(message):
     elif message.text == "/stats" and message.chat.id == Admin:
         user = len(User.objects.all())
         bot.send_message(Admin,
-                         f'🔰<b><i>Bot statistikasi:</i></b>\n👥<b>Foydalanuvchilar:</b> {user}\n🧑🏻‍💻<b>Muallif:</b><i> @dkarimoff96</i>')
+                         f'🔰<b><i>БОТ СТАТИСТИКАСИ:</i></b>\n👥<b>Фойдаланувчилар сони:</b> {user}\n📖<b>Суралар сони:</b> {len(suras)}\n🧑🏻‍💻<b>Админ:</b><i> @dkarimoff96</i>')
 
     elif message.text == '/stop' and message.chat.id == Admin:
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)

@@ -12,9 +12,7 @@ icalendar==4.0.9
 idna==3.3
 lxml==4.7.1
 marshmallow==3.19.0
-mysqlclient==2.1.0
 packaging==23.0
-psycopg2==2.9.3
 psycopg2-binary==2.9.3
 pyaes==1.6.1
 PySocks==1.7.1
