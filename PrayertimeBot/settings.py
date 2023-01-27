@@ -28,7 +28,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', False)
 
-ALLOWED_HOSTS = [env.str('ALLOWED_HOSTS'),'16.170.234.17', '127.0.0.1']
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 CSRF_TRUSTED_ORIGINS = ['https://namozvaqti.mydev.uz']
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
