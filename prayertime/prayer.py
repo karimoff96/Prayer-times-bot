@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 from zoneinfo import ZoneInfo
 from datetime import datetime
-from django.shortcuts import HttpResponse, redirect
 dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '15': 'Наманган',
         '4': "Бухоро", '9': 'Жиззах', '25': 'Қарши', '16': 'Нукус',
         '14': 'Навоий', '18': 'Самарқанд', '21': 'Хива', '5': 'Гулистон', '6': 'Денов',
@@ -62,8 +61,7 @@ def pray_time(a):
                    f'🌃<b>Хуфтон:</b>                     《<i>{xufton}</i>》\n' \
                    f'==============================\n\n' \
                    f'📅 <u><b>Сана:</b> <i> {date}</i></u>    | 📍<u><b>Кун:</b> <i>{kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {current_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
-            # return text
-            return HttpResponse('severdan')
+            return text
     else:
         text = f'⌛️<b>Намоз вақтлари <u><i>{time.city}</i></u> шаҳри бўйича:</b>\n\n' \
                f'==============================\n' \
@@ -77,8 +75,7 @@ def pray_time(a):
                f'🌃<b>Хуфтон:</b>                     《<i>{time.xufton.strftime("%H:%M")}</i>》\n' \
                f'==============================\n\n' \
                f'📅 <u><b>Сана:</b> <i> {time.date}</i></u>    | 📍<u><b>Кун:</b> <i>{time.kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {time.updated_date}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
-        # return text
-        return HttpResponse('DB dan')
+        return text
 
 def surahs(sura):
     with open('./data.json', 'r', encoding='utf-8') as file:
