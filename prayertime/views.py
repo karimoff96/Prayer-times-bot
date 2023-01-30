@@ -1,13 +1,11 @@
 from django.views.decorators.csrf import csrf_exempt
 import telebot
 from telebot import types
-from .models import *
+from .models import Send, User, Time
 from .prayer import pray_time, surahs
 from environs import Env
 from telebot.apihelper import ApiTelegramException
-from .models import Send
 from django.http import HttpResponse
-from django.shortcuts import redirect
 
 env = Env()
 env.read_env()
@@ -84,6 +82,7 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot_user = User.objects.get(user_id=message.chat.id)
+
     if message.text in ["⌛Намоз вақтлари"]:
         bot_user.step = 1
         bot_user.save()
