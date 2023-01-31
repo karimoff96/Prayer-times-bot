@@ -179,7 +179,7 @@ def echo_all(message):
         btn2 = types.KeyboardButton("🔰Керакли дуолар")
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
     elif message.text == '📜Қуръон оятлари':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
@@ -265,7 +265,7 @@ def echo_all(message):
         btn2 = types.KeyboardButton("🔰Керакли дуолар")
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(message.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
 
 def send(elon):
@@ -276,7 +276,7 @@ def send(elon):
         btn2 = types.KeyboardButton("🔰Керакли дуолар")
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(elon.from_user.id, '<b><i>Бисмилл`аҳир роҳм`анир роҳ`ийм</i></b>', reply_markup=markup)
+        bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
     else:
         users = User.objects.all()[:5]
@@ -366,6 +366,14 @@ def call_data(call):
         bot.send_message(call.from_user.id, text=pray_time(bot_user.address), reply_markup=markup)
     elif call.data == 'clear':
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
+        text = f'<i><b>Қуйидаги бўлимлардан бирини танланг:</b></i>'
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("🔰Керакли дуолар")
+        btn3 = types.KeyboardButton("📜Қуръон оятлари")
+        markup.add(btn, btn1, btn2, btn3)
+        bot.send_message(call.from_user.id, text, reply_markup=markup)
     elif call.data == 'back':
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
         markup = types.InlineKeyboardMarkup(row_width=2)
