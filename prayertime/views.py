@@ -179,7 +179,8 @@ def echo_all(message):
         btn2 = types.KeyboardButton("🔰Керакли дуолар")
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
+        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
+                         reply_markup=markup)
 
     elif message.text == '📜Қуръон оятлари':
         markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
@@ -265,7 +266,17 @@ def echo_all(message):
         btn2 = types.KeyboardButton("🔰Керакли дуолар")
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
+        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
+                         reply_markup=markup)
+    else:
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        btn = types.KeyboardButton("⌛Намоз вақтлари")
+        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+        btn2 = types.KeyboardButton("🔰Керакли дуолар")
+        btn3 = types.KeyboardButton("📜Қуръон оятлари")
+        markup.add(btn, btn1, btn2, btn3)
+        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
+                         reply_markup=markup)
 
 
 def send(elon):
@@ -279,7 +290,7 @@ def send(elon):
         bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
     else:
-        users = User.objects.all()[:5]
+        users = User.objects.all()[:50]
         fail = 0
         success = 0
         for m in users:
@@ -289,12 +300,12 @@ def send(elon):
             except ApiTelegramException:
                 fail += 1
         a = Send.objects.filter(id=1).first()
-        a.current = 5
+        a.current = 50
         a.count = success
         a.msg_id = elon.id
         a.save()
         bot.send_message(Admin,
-                         f'foydalanuvchilarga jo`natilishni boshladi', )
+                         f'Habar foydalanuvchilarga yuborilmoqda...', )
 
 
 def cronsend(request):
@@ -312,7 +323,7 @@ def cronsend(request):
             us = len(User.objects.all())
             total = msg.count
             bot.send_message(Admin,
-                             f'<code><i>Jami feoydalanuvchi: {us}\nJo`natildi: {total}\nJo`natilmadi: {us - total}</i></code>',
+                             f'<code><i>Jami foydalanuvchilar soni: {us}\nJo`natildi: {total}\nJo`natilmadi: {us - total}</i></code>',
                              reply_markup=markup)
             msg.current = 0
             msg.count = 0
