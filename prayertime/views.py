@@ -268,15 +268,6 @@ def echo_all(message):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
                          reply_markup=markup)
-    else:
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        btn = types.KeyboardButton("⌛Намоз вақтлари")
-        btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
-        btn2 = types.KeyboardButton("🔰Керакли дуолар")
-        btn3 = types.KeyboardButton("📜Қуръон оятлари")
-        markup.add(btn, btn1, btn2, btn3)
-        bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
-                         reply_markup=markup)
 
 
 def send(elon):
