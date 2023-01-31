@@ -103,7 +103,7 @@ def echo_all(message):
         b13 = types.InlineKeyboardButton('🕌Қўқон', callback_data='26')
         b14 = types.InlineKeyboardButton('🕌Марғилон', callback_data='13')
         b15 = types.InlineKeyboardButton('🕌Бишкек', callback_data='3')
-        b16 = types.InlineKeyboardButton('🕌Туркманистон', callback_data='19')
+        b16 = types.InlineKeyboardButton('🕌Туркистон', callback_data='19')
         b17 = types.InlineKeyboardButton('🕌Зарафшон', callback_data='61')
         b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
         b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
@@ -367,6 +367,7 @@ def call_data(call):
     elif call.data == 'clear':
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
     elif call.data == 'back':
+        bot.delete_message(call.from_user.id, message_id=call.message.message_id)
         markup = types.InlineKeyboardMarkup(row_width=2)
         b = types.InlineKeyboardButton('🕌Тошкент', callback_data='27')
         b1 = types.InlineKeyboardButton('🕌Фарғона', callback_data='37')
@@ -384,7 +385,7 @@ def call_data(call):
         b13 = types.InlineKeyboardButton('🕌Қўқон', callback_data='26')
         b14 = types.InlineKeyboardButton('🕌Марғилон', callback_data='13')
         b15 = types.InlineKeyboardButton('🕌Бишкек', callback_data='3')
-        b16 = types.InlineKeyboardButton('🕌Туркманистон', callback_data='19')
+        b16 = types.InlineKeyboardButton('🕌Туркистон', callback_data='19')
         b17 = types.InlineKeyboardButton('🕌Зарафшон', callback_data='61')
         b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
         b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')

@@ -14,12 +14,11 @@ dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '
 def pray_time(a):
     # Time.objects.create(city_id=a, city=dict[a])
     time = Time.objects.get(city_id=a)
-    current_time = datetime.now(tz=ZoneInfo("Asia/Tashkent")).strftime('%H:%m')
+    current_time = datetime.now().strftime('%H:%M:%S')
     time.updated_time = current_time
     time.save()
     date = datetime.now().date()
     if time.updated_date != datetime.now().date():
-
         url = f'https://islom.uz/vaqtlar/{a}/{datetime.now().month}'
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
@@ -27,7 +26,6 @@ def pray_time(a):
             city_href = soup.find_all('tr', class_='juma bugun')
         else:
             city_href = soup.find_all('tr', class_='p_day bugun')
-
         for i in city_href:
             table_data = i.find_all('td')
             data = [j.text for j in table_data]
@@ -74,7 +72,7 @@ def pray_time(a):
                f'🏙<b>Шом(Ифтор):</b>          《<i>{time.shom.strftime("%H:%M")}</i>》\n' \
                f'🌃<b>Хуфтон:</b>                     《<i>{time.xufton.strftime("%H:%M")}</i>》\n' \
                f'==============================\n\n' \
-               f'📅 <u><b>Сана:</b> <i> {time.date}</i></u>    | 📍<u><b>Кун:</b> <i>{time.kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {time.updated_date}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
+               f'📅 <u><b>Сана:</b> <i> {time.date}</i></u>    | 📍<u><b>Кун:</b> <i>{time.kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {time.updated_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
         return text
 
 def surahs(sura):
