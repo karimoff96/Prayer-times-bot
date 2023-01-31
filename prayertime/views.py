@@ -235,7 +235,7 @@ def echo_all(message):
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
         markup.add(b)
-        mesg = bot.send_message(Admin, '<code>Elonni kiriting:</code>', reply_markup=markup)
+        mesg = bot.send_message(Admin, '<code>Belgilar soni 10 tadan kam bo`lmagan habar kiriting:</code>', reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
 
     elif message.text == "/stats" and message.chat.id == Admin:
