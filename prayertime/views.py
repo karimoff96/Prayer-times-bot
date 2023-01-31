@@ -259,7 +259,16 @@ def echo_all(message):
         a.msg_id = 0
         a.save()
 
-    elif message.text == '🔙Ortga':
+    # elif message.text == '🔙Ortga':
+    #     markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    #     btn = types.KeyboardButton("⌛Намоз вақтлари")
+    #     btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+    #     btn2 = types.KeyboardButton("🔰Керакли дуолар")
+    #     btn3 = types.KeyboardButton("📜Қуръон оятлари")
+    #     markup.add(btn, btn1, btn2, btn3)
+    #     bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
+    #                      reply_markup=markup)
+    else:
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
@@ -280,7 +289,7 @@ def send(elon):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
-    else:
+    elif len(elon.text) >= 10:
         users = User.objects.all()[:50]
         fail = 0
         success = 0
