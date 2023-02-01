@@ -115,7 +115,7 @@ def echo_all(message):
 
     elif message.text == '🕋Намоз ўрганиш':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-        b = types.KeyboardButton('💦Тахорат олиш')
+        b = types.KeyboardButton('🚰Тахорат олиш')
         b0 = types.KeyboardButton('👳‍♂Эркаклар учун')
         b1 = types.KeyboardButton('👳Аёллар учун')
         b2 = types.KeyboardButton('🔙Ортга')
@@ -126,7 +126,7 @@ def echo_all(message):
                          f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>',
                          reply_markup=markup)
 
-    elif message.text == '💦Тахотар':
+    elif message.text == '🚰Тахотар':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/128',
                        caption='Ният\n\n<b>Яқинларингизга ҳам улашинг:</b>  <i>@namozvaqtlarirobot</i>')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/129',
