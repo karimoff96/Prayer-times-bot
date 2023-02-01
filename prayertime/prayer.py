@@ -12,7 +12,7 @@ dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '
 
 
 def pray_time(a):
-    Time.objects.create(city_id=a, city=dict[a])
+    # Time.objects.create(city_id=a, city=dict[a])
     time = Time.objects.get(city_id=a)
     current_time = datetime.now().strftime('%H:%M:%S')
     time.updated_time = current_time
@@ -49,27 +49,28 @@ def pray_time(a):
             time.save()
             text = f'⌛️<b>Намоз вақтлари <u><i>{dict[a]}</i></u> шаҳри бўйича:</b>\n\n' \
                    f'==============================\n' \
-                   f'🏙<b>Тонг(Саҳарлик):</b>     《<i>{tong}</i>》\n' \
-                   f'🌃<b>Куёш:</b>                           《<i>{quyosh}</i>》\n' \
-                   f'🌇<b>Пешин:</b>                       《<i>{pewn}</i>》\n' \
-                   f'🌆<b>Аср:</b>                              《<i>{asr}</i>》\n' \
+                   f'🏙<b>Тонг(Саҳарлик):</b>     《<i>{tong}</i>》\n\n' \
+                   f'🌃<b>Куёш:</b>                           《<i>{quyosh}</i>》\n\n' \
+                   f'🌇<b>Пешин:</b>                       《<i>{pewn}</i>》\n\n' \
+                   f'🌆<b>Аср:</b>                              《<i>{asr}</i>》\n\n' \
                    f'🏙<b>Шом(Ифтор):</b>          ' \
-                   f'《<i>{shom}</i>》\n' \
+                   f'《<i>{shom}</i>》\n\n' \
                    f'🌃<b>Хуфтон:</b>                     《<i>{xufton}</i>》\n' \
                    f'==============================\n\n' \
+                   f'<b>Вақтлар 5-6 дақиқага фарқ қилиши мумкин!</b>\n' \
                    f'📅 <u><b>Сана:</b> <i> {date}</i></u>    | 📍<u><b>Кун:</b> <i>{kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {current_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
             return text
     else:
         text = f'⌛️<b>Намоз вақтлари <u><i>{time.city}</i></u> шаҳри бўйича:</b>\n\n' \
                f'==============================\n' \
-               f'🏙<b>Тонг(Саҳарлик):</b>      《<i>{time.tong.strftime("%H:%M")}</i>》\n' \
-               f'🌃<b>Куёш:</b>                         《<i>{time.quyosh.strftime("%H:%M")}</i>》\n' \
-               f'🌇<b>Пешин:</b>                     《<i>{time.peshin.strftime("%H:%M")}</i>》\n' \
-               f'🌆<b>Аср:</b>                            《<i>{time.asr.strftime("%H:%M")}</i>》\n' \
-               f'🏙<b>Шом(Ифтор):</b>          《<i>{time.shom.strftime("%H:%M")}</i>》\n' \
+               f'🏙<b>Тонг(Саҳарлик):</b>      《<i>{time.tong.strftime("%H:%M")}</i>》\n\n' \
+               f'🌃<b>Куёш:</b>                         《<i>{time.quyosh.strftime("%H:%M")}</i>》\n\n' \
+               f'🌇<b>Пешин:</b>                     《<i>{time.peshin.strftime("%H:%M")}</i>》\n\n' \
+               f'🌆<b>Аср:</b>                            《<i>{time.asr.strftime("%H:%M")}</i>》\n\n' \
+               f'🏙<b>Шом(Ифтор):</b>          《<i>{time.shom.strftime("%H:%M")}</i>》\n\n' \
                f'🌃<b>Хуфтон:</b>                     《<i>{time.xufton.strftime("%H:%M")}</i>》\n' \
                f'==============================\n\n' \
-               f'📅 <u><b>Сана:</b> <i> {time.date}</i></u>    | 📍<u><b>Кун:</b> <i>{time.kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {time.updated_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
+               f'<b>Вақтлар 5-6 дақиқага фарқ қилиши мумкин!</b>\n📅 <u><b>Сана:</b> <i> {time.date}</i></u>    | 📍<u><b>Кун:</b> <i>{time.kun}</i></u>\n⏱<u><b> Вақт:</b> <i> {time.updated_time}</i></u>         |  🔗<u><b> Манбаа:</b>  <i>islom.uz</i></u>\n<u><b>🤖Бот:</b>  <i>@namozvaqtlarirobot</i></u>'
         return text
 
 
