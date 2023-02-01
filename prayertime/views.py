@@ -108,9 +108,11 @@ def echo_all(message):
         b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
         b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
         b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
+        b22 = types.InlineKeyboardButton('🕌Риштон', callback_data='39')
         b21 = types.InlineKeyboardButton('🔙Ортга', callback_data='clear')
 
-        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b20, b19, b18, b21)
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b22, b14, b15, b16, b17, b20, b19, b18,
+                   b21)
         bot.send_message(message.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>", reply_markup=markup)
 
     elif message.text == '🕋Намоз ўрганиш':
@@ -348,7 +350,7 @@ def cronsend(request):
 @bot.callback_query_handler(func=lambda call: True)
 def call_data(call):
     if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
-                     '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74']:
+                     '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74', '39']:
         bot_user = User.objects.get(user_id=call.from_user.id)
         bot_user.address = call.data
         bot_user.step = 3
@@ -402,6 +404,8 @@ def call_data(call):
         b18 = types.InlineKeyboardButton('🕌Ўш', callback_data='20')
         b19 = types.InlineKeyboardButton('🕌Урганч', callback_data='78')
         b20 = types.InlineKeyboardButton('🕌Термиз', callback_data='74')
+        b22 = types.InlineKeyboardButton('🕌Риштон', callback_data='39')
         b21 = types.InlineKeyboardButton('🔙Ортга', callback_data='clear')
-        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b20, b19, b18, b21)
+        markup.add(b, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b22, b14, b15, b16, b17, b20, b19, b18,
+                   b21)
         bot.send_message(call.from_user.id, "<u><b>🏘Ҳудудни танланг:</b></u>", reply_markup=markup)

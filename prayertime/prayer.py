@@ -2,18 +2,17 @@ import json
 from .models import Time
 import requests
 from bs4 import BeautifulSoup
-from zoneinfo import ZoneInfo
 from datetime import datetime
 
 dict = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '15': 'Наманган',
         '4': "Бухоро", '9': 'Жиззах', '25': 'Қарши', '16': 'Нукус',
         '14': 'Навоий', '18': 'Самарқанд', '21': 'Хива', '5': 'Гулистон', '6': 'Денов',
         '26': 'Қўқон', '13': 'Марғилон', '3': 'Бишкек', '19': 'Туркистон',
-        '61': 'Зарафшон', '20': 'Ўш', '78': 'Урганч', '74': 'Термиз'}
+        '61': 'Зарафшон', '20': 'Ўш', '78': 'Урганч', '74': 'Термиз', '39': 'Риштон'}
 
 
 def pray_time(a):
-    # Time.objects.create(city_id=a, city=dict[a])
+    Time.objects.create(city_id=a, city=dict[a])
     time = Time.objects.get(city_id=a)
     current_time = datetime.now().strftime('%H:%M:%S')
     time.updated_time = current_time
