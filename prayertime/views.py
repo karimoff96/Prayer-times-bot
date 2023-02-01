@@ -126,7 +126,7 @@ def echo_all(message):
                          f' <i><b>"Аҳлингизни намоз ( ўқиш ) га буюринг ва ( ўзингиз ҳам ) унга ( намозга ) бардошли бўлинг!” (Тоҳа, 132).</b></i>',
                          reply_markup=markup)
 
-    elif message.text == '🚰Тахотар':
+    elif message.text == '🚰Тахорат олиш':
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/128',
                        caption='Ният\n\n<b>Яқинларингизга ҳам улашинг:</b>  <i>@namozvaqtlarirobot</i>')
         bot.send_video(chat_id=message.from_user.id, video='https://t.me/quran_u/129',
