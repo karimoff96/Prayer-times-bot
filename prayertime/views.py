@@ -272,7 +272,7 @@ def echo_all(message):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
                          reply_markup=markup)
-
+    print(message.text)
 
 def send(elon):
     if elon.text == '🔙Ortga':
@@ -284,7 +284,7 @@ def send(elon):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
-    elif len(elon.text) >= 10:
+    else:
         users = User.objects.all()[:50]
         fail = 0
         success = 0
