@@ -306,7 +306,7 @@ def cronsend(request):
     msg = Send.objects.get(id=1)
     if msg.msg_id != 0:
         son = msg.current
-        users = User.objects.all()[son:son + 5]
+        users = User.objects.all()[son:son + 50]
         if len(users) == 0:
             markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
             btn = types.KeyboardButton("⌛Намоз вақтлари")
@@ -335,14 +335,14 @@ def cronsend(request):
             except ApiTelegramException:
                 fail += 1
         a = Send.objects.filter(id=1).first()
-        a.current = msg.current + 5
+        a.current = msg.current + 50
         a.count = msg.count + success
         a.save()
         response = HttpResponse()
         response.write("<p>Xabar yuborilyapti.</p>")
         return response
     response = HttpResponse()
-    response.write("<p>Tugadi.</p>")
+    response.write("<p>Habar yuborilmadi.</p>")
     return response
 
 
