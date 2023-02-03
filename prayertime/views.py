@@ -237,13 +237,13 @@ def echo_all(message):
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
         markup.add(b)
-        mesg = bot.send_message(Admin, '<code>Belgilar soni 10 tadan kam bo`lmagan habar kiriting:</code>',
+        mesg = bot.send_message(Admin, '<code>Habarni kiriting:</code>',
                                 reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
 
-    elif message.text == "/stats" and message.chat.id == Admin:
+    elif message.text == "/stats":
         user = len(User.objects.all())
-        bot.send_message(Admin,
+        bot.send_message(message.from_user.id,
                          f'🔰<b><i>БОТ СТАТИСТИКАСИ:</i></b>\n👥<b>Фойдаланувчилар сони:</b> {user}\n📖<b>Суралар сони:</b> {len(suras)}\n🧑🏻‍💻<b>Админ:</b><i> @dkarimoff96</i>')
 
     elif message.text == '/stop' and message.chat.id == Admin:
@@ -254,7 +254,7 @@ def echo_all(message):
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
         a = Send.objects.filter(id=1).first()
-        bot.send_message(message.from_user.id,
+        bot.send_message(Admin,
                          f'<b><i>xabar yuborish toxtatildi. hozircha : {a.count} ta odamga yuborildi</i></b>',
                          reply_markup=markup)
         a.current = 0
