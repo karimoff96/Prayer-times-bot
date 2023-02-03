@@ -272,7 +272,6 @@ def echo_all(message):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
                          reply_markup=markup)
-    print(message.text)
 
 def send(elon):
     if elon.text == '🔙Ortga':
