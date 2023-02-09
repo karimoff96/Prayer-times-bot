@@ -7,7 +7,7 @@ class User(models.Model):
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
     phone_number = models.CharField(max_length=128, blank=True, null=True)
-    city = models.CharField(max_length=200, blank=True, null=True)
+    address = models.CharField(max_length=200, blank=True, null=True)
     active = models.BooleanField(default=False)
     language = models.CharField(max_length=100, blank=True, null=True)
     cr_on = models.DateTimeField(auto_now_add=True)

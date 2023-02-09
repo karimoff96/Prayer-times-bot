@@ -361,7 +361,7 @@ def call_data(call):
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74', '39']:
 
         bot_user = User.objects.get(user_id=call.from_user.id)
-        bot_user.city = f'{cities[call.data]} - {call.data}'
+        bot_user.address = f'{cities[call.data]} - {call.data}'
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=1)
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
