@@ -26,6 +26,12 @@ def index(request):
         return HttpResponse(status=200)
 
 
+cities = {"27": 'Тошкент', '37': 'Фарғона', '1': 'Андижон', '15': 'Наманган',
+          '4': "Бухоро", '9': 'Жиззах', '25': 'Қарши', '16': 'Нукус',
+          '14': 'Навоий', '18': 'Самарқанд', '21': 'Хива', '5': 'Гулистон', '6': 'Денов',
+          '26': 'Қўқон', '13': 'Марғилон', '3': 'Бишкек', '19': 'Туркистон',
+          '61': 'Зарафшон', '20': 'Ўш', '78': 'Урганч', '74': 'Термиз', '39': 'Риштон'}
+
 suras = ['Fotiha', 'Baqara', 'Imron', 'Niso', 'Maida', 'Anam', 'Arof', 'Anfol', 'Tavba', 'Yunus', 'Hud', 'Yusuf',
          'Rad', 'Ibrohim', 'Hijr', 'Nahl', 'Isro', 'Kahf', 'Maryam', 'Toha', 'Anbiyo', 'Haj', 'Muminun', 'Nur',
          'Furqon', 'Shuaro', 'Naml', 'Qasos', 'Ankabut', 'Rum', 'Luqmon', 'Sajda', 'Ahzob', 'Saba', 'Fotir', 'Yosin',
@@ -68,7 +74,9 @@ def start(message):
         if message.from_user.username != None:
             bot.send_message(Admin, f'<b>Yangi foydalanuvchi <i>@{message.from_user.username}</i></b>')
         else:
-            bot.send_message(Admin, f'<b>Yangi foydalanuvchi <i>{message.from_user.id}</i></b>')
+            bot.send_message(Admin,
+                             f'*Yangi foydalanuvchi * [{message.from_user.first_name}](tg://user?id={message.from_user.id})',
+                             parse_mode='markdown')
         bot_user = User.objects.create(
             user_id=message.from_user.id,
             username=message.from_user.username,
@@ -273,6 +281,7 @@ def echo_all(message):
         bot.send_message(message.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
                          reply_markup=markup)
 
+
 def send(elon):
     if elon.text == '🔙Ortga':
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
@@ -350,9 +359,9 @@ def cronsend(request):
 def call_data(call):
     if call.data in ['27', '37', '1', '15', '4', '9', '25', '16',
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74', '39']:
+
         bot_user = User.objects.get(user_id=call.from_user.id)
-        bot_user.address = call.data
-        bot_user.step = 3
+        bot_user.city = f'{cities[call.data]} - {call.data}'
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=1)
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
