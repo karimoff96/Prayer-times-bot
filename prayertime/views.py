@@ -1,7 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
 import telebot
 from telebot import types
-from .models import Send, User, Time
+from .models import Send, User
 from .prayer import pray_time, surahs
 from environs import Env
 from telebot.apihelper import ApiTelegramException
@@ -71,12 +71,9 @@ def start(message):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(message.from_user.id, text, reply_markup=markup)
 
-        if message.from_user.username != None:
-            bot.send_message(Admin, f'<b>Yangi foydalanuvchi <i>@{message.from_user.username}</i></b>')
-        else:
-            bot.send_message(Admin,
-                             f'*Yangi foydalanuvchi * [{message.from_user.first_name}](tg://user?id={message.from_user.id})',
-                             parse_mode='markdown')
+        bot.send_message(Admin,
+                         f'*Yangi foydalanuvchi * [{message.from_user.first_name}](tg://user?id={message.from_user.id})',
+                         parse_mode='markdown')
         bot_user = User.objects.create(
             user_id=message.from_user.id,
             username=message.from_user.username,
@@ -245,7 +242,8 @@ def echo_all(message):
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
         markup.add(b)
-        mesg = bot.send_message(Admin, '<code>Habarni kiriting:</code>',
+        mesg = bot.send_message(Admin,
+                                '<code>Blegilar soni 20 tadan kam bo`lmagan yozuvli habar yoki media kontent kiriting:</code>',
                                 reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
 
@@ -263,7 +261,7 @@ def echo_all(message):
         markup.add(btn, btn1, btn2, btn3)
         a = Send.objects.filter(id=1).first()
         bot.send_message(Admin,
-                         f'<b><i>xabar yuborish toxtatildi. hozircha : {a.count} ta odamga yuborildi</i></b>',
+                         f'<b><i>Habar yuborish to`xtatildi.\nHozircha : {a.count} ta foydalanuvchiga yuborildi</i></b>',
                          reply_markup=markup)
         a.current = 0
         a.count = 0
@@ -292,6 +290,36 @@ def send(elon):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
+    elif elon.content_type == 'text':
+        if len(elon.text) <= 20:
+            markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+            btn = types.KeyboardButton("⌛Намоз вақтлари")
+            btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
+            btn2 = types.KeyboardButton("🔰Керакли дуолар")
+            btn3 = types.KeyboardButton("📜Қуръон оятлари")
+            markup.add(btn, btn1, btn2, btn3)
+            bot.send_message(elon.from_user.id,
+                             '<b><i>Yuborilgan habar belgilar soni 20 tadan kam bo`lganligi sabali yuborilmadi!</i></b>',
+                             reply_markup=markup)
+            return bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>',
+                                    reply_markup=markup)
+
+        users = User.objects.all()[:50]
+        fail = 0
+        success = 0
+        for m in users:
+            try:
+                bot.copy_message(m.user_id, from_chat_id=Admin, message_id=elon.id)
+                success += 1
+            except ApiTelegramException:
+                fail += 1
+        a = Send.objects.filter(id=1).first()
+        a.current = 50
+        a.count = success
+        a.msg_id = elon.id
+        a.save()
+        bot.send_message(Admin,
+                         f'Habar foydalanuvchilarga yuborilmoqda...', )
     else:
         users = User.objects.all()[:50]
         fail = 0
@@ -333,7 +361,7 @@ def cronsend(request):
             msg.msg_id = 0
             msg.save()
             response = HttpResponse()
-            response.write("<p>Xabar yuborilishi toxtaildi.</p>")
+            response.write("<p>Habar yuborilishi toxtaildi.</p>")
             return response
         fail = 0
         success = 0
@@ -348,7 +376,7 @@ def cronsend(request):
         a.count = msg.count + success
         a.save()
         response = HttpResponse()
-        response.write("<p>Xabar yuborilyapti.</p>")
+        response.write("<p>Habar yuborilyapti.</p>")
         return response
     response = HttpResponse()
     response.write("<p>Habar yuborilmadi.</p>")
@@ -361,7 +389,7 @@ def call_data(call):
                      '18', '21', '5', '6', '14', '26', '13', '3', '19', '61', '20', '78', '74', '39']:
 
         bot_user = User.objects.get(user_id=call.from_user.id)
-        bot_user.address = f'{cities[call.data]} - {call.data}'
+        bot_user.city = f'{cities[call.data]} - {call.data}'
         bot_user.save()
         markup = types.InlineKeyboardMarkup(row_width=1)
         item1 = types.InlineKeyboardButton("🔙Ортга", callback_data='back')
