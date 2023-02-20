@@ -10,7 +10,8 @@ from django.http import HttpResponse
 env = Env()
 env.read_env()
 bot = telebot.TeleBot(env.str('TOKEN'), parse_mode="HTML")
-Admin = env.int('ADMIN')
+ADMINS = env.list('ADMINS')
+CURRENT_ADMIN = None
 
 
 @csrf_exempt
@@ -71,9 +72,6 @@ def start(message):
         markup.add(btn, btn1, btn2, btn3)
         bot.send_message(message.from_user.id, text, reply_markup=markup)
 
-        bot.send_message(Admin,
-                         f'*Yangi foydalanuvchi * [{message.from_user.first_name}](tg://user?id={message.from_user.id})',
-                         parse_mode='markdown')
         bot_user = User.objects.create(
             user_id=message.from_user.id,
             username=message.from_user.username,
@@ -82,6 +80,10 @@ def start(message):
             step=1
         )
         bot_user.save()
+        for admin in ADMINS:
+            bot.send_message(int(admin),
+                             f'*Yangi foydalanuvchi * [{message.from_user.first_name}](tg://user?id={message.from_user.id})',
+                             parse_mode='markdown')
 
 
 @bot.message_handler(func=lambda message: True)
@@ -238,11 +240,13 @@ def echo_all(message):
                        caption='<b>Алл`оҳуммағфир лиҳаййин`а ва маййитин`а ва ш`аҳидин`а ва ғ`о’ибин`а ва соғ`ийрин`а ва каб`ийрин`а ва закарин`а ва унс`ан`а. Алл`оҳумма ман аҳйайтаҳ`у минн`а фааҳйиҳ`и ъалал Исл`ам. Ва ман таваффайту минн`а фатаваффаҳ`у ъалал ийм`ан.</b>\n\n<i>Маъноси: «Эй Раббим! Тиригимизни ва ўлигимизни, бу ерда бўлганларни ва бўлмаганларни, кичикларимизни ва катталаримизни, эркак ва аёлларимизни кечиргин. Аллоҳим, Биздан туғилажак янги наслларни Ислом динида дунёга келтир. Ажали етиб ҳаётдан кўз юмадиганларнинг жонларини имонли ҳолларида олгин». </i>\n\n<b>Яқинларингизга ҳам улашинг:</b>  <i>@namozvaqtlarirobot</i>')
 
     # ADMIN COMMANDS
-    elif message.text == '/send' and message.chat.id == Admin:
+
+    elif message.text == '/send' and str(message.chat.id) in ADMINS:
+        CURRENT_ADMIN = message.chat.id
         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         b = types.KeyboardButton('🔙Ortga')
         markup.add(b)
-        mesg = bot.send_message(Admin,
+        mesg = bot.send_message(CURRENT_ADMIN,
                                 '<code>Blegilar soni 20 tadan kam bo`lmagan yozuvli habar yoki media kontent kiriting:</code>',
                                 reply_markup=markup)
         bot.register_next_step_handler(mesg, send)
@@ -252,7 +256,7 @@ def echo_all(message):
         bot.send_message(message.from_user.id,
                          f'🔰<b><i>БОТ СТАТИСТИКАСИ:</i></b>\n👥<b>Фойдаланувчилар сони:</b> {user}\n📖<b>Суралар сони:</b> {len(suras)}\n🧑🏻‍💻<b>Админ:</b><i> @dkarimoff96</i>')
 
-    elif message.text == '/stop' and message.chat.id == Admin:
+    elif message.text == '/stop' and str(message.chat.id) in ADMINS:
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
         btn = types.KeyboardButton("⌛Намоз вақтлари")
         btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
@@ -260,14 +264,13 @@ def echo_all(message):
         btn3 = types.KeyboardButton("📜Қуръон оятлари")
         markup.add(btn, btn1, btn2, btn3)
         a = Send.objects.filter(id=1).first()
-        bot.send_message(Admin,
+        bot.send_message(message.chat.id,
                          f'<b><i>Habar yuborish to`xtatildi.\nHozircha : {a.count} ta foydalanuvchiga yuborildi</i></b>',
                          reply_markup=markup)
         a.current = 0
         a.count = 0
         a.msg_id = 0
         a.save()
-
 
     else:
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
@@ -309,7 +312,7 @@ def send(elon):
         success = 0
         for m in users:
             try:
-                bot.copy_message(m.user_id, from_chat_id=Admin, message_id=elon.id)
+                bot.copy_message(m.user_id, from_chat_id=elon.from_user.id, message_id=elon.id)
                 success += 1
             except ApiTelegramException:
                 fail += 1
@@ -318,7 +321,7 @@ def send(elon):
         a.count = success
         a.msg_id = elon.id
         a.save()
-        bot.send_message(Admin,
+        bot.send_message(elon.from_user.id,
                          f'Habar foydalanuvchilarga yuborilmoqda...', )
     else:
         users = User.objects.all()[:50]
@@ -326,7 +329,7 @@ def send(elon):
         success = 0
         for m in users:
             try:
-                bot.copy_message(m.user_id, from_chat_id=Admin, message_id=elon.id)
+                bot.copy_message(m.user_id, from_chat_id=elon.from_user.id, message_id=elon.id)
                 success += 1
             except ApiTelegramException:
                 fail += 1
@@ -335,7 +338,7 @@ def send(elon):
         a.count = success
         a.msg_id = elon.id
         a.save()
-        bot.send_message(Admin,
+        bot.send_message(elon.from_user.id,
                          f'Habar foydalanuvchilarga yuborilmoqda...', )
 
 
@@ -353,7 +356,7 @@ def cronsend(request):
             markup.add(btn, btn1, btn2, btn3)
             us = len(User.objects.all())
             total = msg.count
-            bot.send_message(Admin,
+            bot.send_message(int(ADMINS[0]),
                              f'<code><i>Jami foydalanuvchilar soni: {us}\nJo`natildi: {total}\nJo`natilmadi: {us - total}</i></code>',
                              reply_markup=markup)
             msg.current = 0
@@ -361,13 +364,13 @@ def cronsend(request):
             msg.msg_id = 0
             msg.save()
             response = HttpResponse()
-            response.write("<p>Habar yuborilishi toxtaildi.</p>")
+            response.write("<h1>Habar yuborilishi muvofaqqiyatli yakunlandi!</h1>")
             return response
         fail = 0
         success = 0
         for m in users:
             try:
-                bot.copy_message(m.user_id, from_chat_id=Admin, message_id=msg.msg_id)
+                bot.copy_message(m.user_id, from_chat_id=request.from_user.id, message_id=msg.msg_id)
                 success += 1
             except ApiTelegramException:
                 fail += 1
@@ -376,10 +379,10 @@ def cronsend(request):
         a.count = msg.count + success
         a.save()
         response = HttpResponse()
-        response.write("<p>Habar yuborilyapti.</p>")
+        response.write("<h1>Habar yuborilmoqda!</h1>")
         return response
     response = HttpResponse()
-    response.write("<p>Habar yuborilmadi.</p>")
+    response.write("<h1>Habar yuborishda hatolik yuz berdi!</h1>")
     return response
 
 
