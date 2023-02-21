@@ -370,7 +370,7 @@ def cronsend(request):
         success = 0
         for m in users:
             try:
-                bot.copy_message(m.user_id, from_chat_id=request.from_user.id, message_id=msg.msg_id)
+                bot.copy_message(m.user_id, from_chat_id=users.id, message_id=msg.msg_id)
                 success += 1
             except ApiTelegramException:
                 fail += 1
@@ -408,7 +408,7 @@ def call_data(call):
         item2 = types.InlineKeyboardButton("🔄Янгилаш", callback_data='refresh')
         markup.add(item2, item1)
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
-        bot.send_message(call.from_user.id, text=pray_time(bot_user.address), reply_markup=markup)
+        bot.send_message(call.from_user.id, text=pray_time(bot_user.city[-2:]), reply_markup=markup)
     elif call.data == 'clear':
         bot.delete_message(call.from_user.id, message_id=call.message.message_id)
         text = f'<i><b>Қуйидаги бўлимлардан бирини танланг:</b></i>'
