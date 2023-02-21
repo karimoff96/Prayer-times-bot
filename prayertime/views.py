@@ -294,7 +294,11 @@ def send(elon):
         bot.send_message(elon.from_user.id, '<b><i>Қуйидаги бўлимлардан бирини танланг:</i></b>', reply_markup=markup)
 
     elif elon.content_type == 'text':
-        if len(elon.text) <= 20:
+        senddd = Send.objects.get(id=1)
+        if senddd.msg_id != 0:
+            return bot.send_message(elon.from_user.id,
+                             f"Hozir aktiv elon mavjud! uni (admin)[tg://user?id={senddd.admin_id} tomonidan yuborilyapti", parse_mode="markdown")
+        elif len(elon.text) <= 20:
             markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
             btn = types.KeyboardButton("⌛Намоз вақтлари")
             btn1 = types.KeyboardButton("🕋Намоз ўрганиш")
@@ -337,6 +341,7 @@ def send(elon):
         a.current = 50
         a.count = success
         a.msg_id = elon.id
+        a.admin_id = elon.from_user.id
         a.save()
         bot.send_message(elon.from_user.id,
                          f'Habar foydalanuvchilarga yuborilmoqda...', )
@@ -347,6 +352,7 @@ def cronsend(request):
     if msg.msg_id != 0:
         son = msg.current
         users = User.objects.all()[son:son + 50]
+
         if len(users) == 0:
             markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
             btn = types.KeyboardButton("⌛Намоз вақтлари")
@@ -370,7 +376,7 @@ def cronsend(request):
         success = 0
         for m in users:
             try:
-                bot.copy_message(m.user_id, from_chat_id=users.id, message_id=msg.msg_id)
+                bot.copy_message(m.user_id, from_chat_id=msg.admin_id, message_id=msg.msg_id)
                 success += 1
             except ApiTelegramException:
                 fail += 1

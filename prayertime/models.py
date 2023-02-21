@@ -36,6 +36,7 @@ class Send(models.Model):
     count = models.IntegerField()
     current = models.IntegerField()
     msg_id = models.BigIntegerField()
+    admin_id = models.BigIntegerField(default=0)
 
 
 class Time(models.Model):
